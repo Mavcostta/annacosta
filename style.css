@@ -3,11 +3,24 @@
     box-sizing: border-box;
 }
 
+/* Adicionando uma rolagem suave ao corpo da página */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
+    background-image: 
+        url('imagens/fundo1.jpeg'),   /* Primeira imagem */
+        url('imagens/fundo1.jpeg'),   /* Segunda imagem */
+        url('imagens/fundo2.jpeg'),   /* Terceira imagem */
+        url('imagens/fundo3.jpeg');   /* Quarta imagem */
+    background-size: 120%; /* Garantir que as imagens cubram toda a tela */
+    background-position: center; /* Centraliza as imagens */
+    background-attachment: fixed; /* Fixa as imagens ao rolar a página */
+    background-repeat: no-repeat; /* Impede a repetição das imagens */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +31,7 @@ body {
 /* Cabeçalho */
 header {
     position: relative;
-    background-image: url(fundo.jpeg);
+    background-image: url('imagens/fundo.jpeg'); /* Usando uma imagem específica para o cabeçalho */
     background-size: cover;
     background-position: center;
     color: white;
@@ -126,30 +139,30 @@ section {
 
 /* Texturas específicas para seções */
 .bem-vindo {
-    background-image: url('imagembemvindo.jpeg');
+    background-image: url('imagens/imagembemvindo.jpeg');
 }
 
 .sobre-mim {
-    background-image: url('fundofavela.jpeg');
+    background-image: url('imagens/fundofavela.jpeg');
 }
 
 .premiacoes {
-    background-image: url('fundotrofeus.jpeg');
+    background-image: url('imagens/fundotrofeus.jpeg');
     backdrop-filter: blur(8px);
 }
 
 .servicos {
-    background-image: url('fundostudio.jpeg');
+    background-image: url('imagens/fundostudio.jpeg');
     backdrop-filter: blur(8px);
 }
 
 .galeria {
-    background-image: url('');
+    background-image: url(''); /* Galeria não tem imagem específica de fundo */
     backdrop-filter: blur(8px);
 }
 
 .contato {
-    background-image: url('fundo-contato.jpg');
+    background-image: url('imagens/fundo-contato.jpg');
     backdrop-filter: blur(10px);
 }
 

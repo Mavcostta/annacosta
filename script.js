@@ -1,30 +1,34 @@
-// Aguarda o carregamento do DOM para garantir que os elementos estão disponíveis
-document.addEventListener('DOMContentLoaded', () => {
-    // Seleciona o botão "Agendar Agora"
-    const btnAgendar = document.querySelector('.btn-agendar');
-    
-    // Adiciona um evento de clique ao botão "Agendar Agora"
-    btnAgendar.addEventListener('click', (event) => {
-        event.preventDefault();  // Evita o comportamento padrão do botão
-        alert('Você clicou para agendar!');  // Exibe um alerta
+// Animações suaves para rolagem entre seções
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
     });
-    
-    // Cria dinamicamente um botão para mudar a cor de fundo
-    const btnMudarCor = document.createElement('button');
-    btnMudarCor.textContent = "Mudar Cor de Fundo";  // Texto do botão
-    btnMudarCor.style.position = "fixed";  // Fixa o botão na tela
-    btnMudarCor.style.bottom = "20px";  // Distância da parte inferior
-    btnMudarCor.style.left = "20px";  // Distância da parte esquerda
-    btnMudarCor.style.padding = "10px 20px";  // Espaçamento interno
-    btnMudarCor.style.backgroundColor = "#ff80b2";  // Cor de fundo do botão
-    btnMudarCor.style.color = "white";  // Cor do texto
-    btnMudarCor.style.border = "none";  // Remove a borda
-    btnMudarCor.style.borderRadius = "5px";  // Arredonda os cantos
-    btnMudarCor.style.cursor = "pointer";  // Adiciona o cursor de clique
-    document.body.appendChild(btnMudarCor);  // Adiciona o botão ao corpo do documento
+});
 
-    // Adiciona um evento de clique ao botão "Mudar Cor de Fundo"
-    btnMudarCor.addEventListener('click', () => {
-        document.body.style.backgroundColor = "#ffedf2";  // Define uma nova cor de fundo
+// Mensagem de redirecionamento para WhatsApp ao clicar no botão "Entrar em Contato"
+document.querySelector('.btn-agendar').addEventListener('click', () => {
+    alert("Você será redirecionado para o WhatsApp.");
+});
+
+// Código para o efeito de fade nas seções ao rolar a página
+document.addEventListener('scroll', function () {
+    const sections = document.querySelectorAll('section');
+    const windowHeight = window.innerHeight;
+
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop <= windowHeight * 0.8) {
+            section.style.opacity = '1';
+            section.style.transition = 'opacity 1.5s ease-out';
+        }
     });
+});
+
+// Transição de fade-in no cabeçalho
+document.addEventListener('DOMContentLoaded', function () {
+    const headerTitle = document.querySelector('header h1');
+    headerTitle.classList.add('fade-in-up');
 });
