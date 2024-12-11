@@ -3,7 +3,6 @@
     box-sizing: border-box;
 }
 
-/* Adicionando uma rolagem suave ao corpo da página */
 html {
     scroll-behavior: smooth;
 }
@@ -13,14 +12,12 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     background-image: 
-        url('imagens/fundo1.jpeg'),   /* Primeira imagem */
-        url('imagens/fundo1.jpeg'),   /* Segunda imagem */
-        url('imagens/fundo2.jpeg'),   /* Terceira imagem */
-        url('imagens/fundo3.jpeg');   /* Quarta imagem */
-    background-size: 120%; /* Garantir que as imagens cubram toda a tela */
-    background-position: center; /* Centraliza as imagens */
-    background-attachment: fixed; /* Fixa as imagens ao rolar a página */
-    background-repeat: no-repeat; /* Impede a repetição das imagens */
+        url('imagens/fundostudio.jpeg'), 
+        url('imagens/fundostudio.jpeg'); 
+    background-size: 120%; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +28,7 @@ body {
 /* Cabeçalho */
 header {
     position: relative;
-    background-image: url('imagens/fundo.jpeg'); /* Usando uma imagem específica para o cabeçalho */
+    background-image: url('imagens/fundo.jpeg'); 
     background-size: cover;
     background-position: center;
     color: white;
@@ -52,12 +49,11 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Escurecimento para contraste */
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
     z-index: -1;
 }
 
-/* Logo */
 header h1 {
     margin: 0;
     font-size: 4rem;
@@ -79,7 +75,6 @@ header h1 {
     }
 }
 
-/* Navegação */
 header nav ul {
     list-style: none;
     padding: 0;
@@ -113,7 +108,7 @@ header nav ul li a:hover {
 /* Estilo geral das seções */
 section {
     text-align: center;
-    max-width: 100%;
+    max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     background: rgba(255, 255, 255, 0.8);
@@ -121,57 +116,70 @@ section {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     backdrop-filter: blur(10px);
+    width: 100%;
 }
 
-/* Fundo com texturas */
 .bem-vindo, .sobre-mim, .premiacoes, .servicos, .galeria, .contato {
     background-size: cover;
     background-position: center;
     padding: 50px;
     color: white;
-    text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
     max-width: 800px;
     width: 100%;
 }
 
-/* Texturas específicas para seções */
 .bem-vindo {
-    background-image: url('imagens/imagembemvindo.jpeg');
+    background-image: url('imagens/fundogeral.jpeg');
 }
 
 .sobre-mim {
-    background-image: url('imagens/fundofavela.jpeg');
+    background-image: url('imagens/fundogeral.jpeg');
 }
 
 .premiacoes {
-    background-image: url('imagens/fundotrofeus.jpeg');
+    background-image: url('imagens/fundogeral.jpeg');
     backdrop-filter: blur(8px);
 }
 
 .servicos {
-    background-image: url('imagens/fundostudio.jpeg');
+    background-image: url('imagens/fundogeral.jpeg');
     backdrop-filter: blur(8px);
 }
 
 .galeria {
-    background-image: url(''); /* Galeria não tem imagem específica de fundo */
+    background-image: url('imagens/fundogeral.jpeg');
     backdrop-filter: blur(8px);
 }
 
 .contato {
-    background-image: url('imagens/fundo-contato.jpg');
+    background-image: url('imagens/fundogeral.jpeg');
     backdrop-filter: blur(10px);
 }
 
-/* Estilo para o título de "Contato" */
-.contato h2 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: rgba(133, 91, 131, 0.8);  /* Cor mais escura para boa visibilidade */
-    margin-bottom: 20px;
+/* Galeria */
+.galeria .imagens-galeria {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
+    justify-content: center;
+    width: 100%;
+}
+
+.galeria img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Botões */
@@ -190,29 +198,6 @@ button {
 button:hover {
     background-color: #ff4d94;
     transform: scale(1.1);
-}
-
-/* Galeria */
-.galeria .imagens-galeria {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-}
-
-.galeria img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.galeria img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Redes sociais */
@@ -266,11 +251,37 @@ footer p {
     }
 
     .galeria .imagens-galeria {
-        flex-direction: column;
+        gap: 10px;
     }
 
     .galeria img {
-        width: 100%;
-        height: auto;
+        width: 200px;
+        height: 150px;
     }
+}
+
+/* Carrossel no cabeçalho com transição suave */
+.carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: slide 15s infinite;
+    transition: opacity 1s ease-in-out; /* Suaviza a transição entre as imagens */
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); opacity: 1; }
+    33% { transform: translateX(-100%); opacity: 0; }
+    66% { transform: translateX(-200%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }
