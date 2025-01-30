@@ -123,7 +123,7 @@ section {
     background-size: cover;
     background-position: center;
     padding: 50px;
-    color: white;
+    color: rgb(10, 8, 8);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 800px;
@@ -131,46 +131,45 @@ section {
 }
 
 .bem-vindo {
-    background-image: url('imagens/fundogeral.jpeg');
+    background-image: url('');
 }
 
 .sobre-mim {
-    background-image: url('imagens/fundogeral.jpeg');
+    background-image: url('');
 }
 
 .premiacoes {
-    background-image: url('imagens/fundogeral.jpeg');
+    background-image: url('');
     backdrop-filter: blur(8px);
 }
 
 .servicos {
-    background-image: url('imagens/fundogeral.jpeg');
+    background-image: url('');
     backdrop-filter: blur(8px);
 }
 
 .galeria {
-    background-image: url('imagens/fundogeral.jpeg');
+    background-image: url('');
     backdrop-filter: blur(8px);
 }
 
 .contato {
-    background-image: url('imagens/fundogeral.jpeg');
+    background-image: url('');
     backdrop-filter: blur(10px);
 }
 
 /* Galeria */
 .galeria .imagens-galeria {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
-    flex-wrap: nowrap;
-    overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
     justify-content: center;
     width: 100%;
 }
 
 .galeria img {
-    width: 250px;
-    height: 200px;
+    width: 75%;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -185,7 +184,7 @@ section {
 /* Botões */
 button {
     background-color: #ff80b2;
-    color: white;
+    color: rgb(10, 10, 10);
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -202,27 +201,33 @@ button:hover {
 
 /* Redes sociais */
 .contato .social-links {
-    margin-top: 30px;
+    display: flex-wrap: wrap;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .contato .social-links a {
     text-decoration: none;
-    color: rgba(133, 91, 131, 0.8);
-    font-size: 2rem;
+    color: rgba(17, 15, 17, 0.8);
+    font-size: 1rem;
     transition: color 0.3s;
 }
 
 .contato .social-links a:hover {
-    color: #b66f8a;
+    color: #0a0a0a;
+}
+
+section {
+    opacity: 0; /* Inicia invisível */
+    transition: opacity 1.5s ease-out; /* Transição suave */
 }
 
 /* Rodapé */
 footer {
     background-color: #ff80b2;
-    color: rgb(120, 52, 52);
+    color: rgb(16, 16, 16);
     text-align: center;
     padding: 10px 0;
     width: 100%;
@@ -235,6 +240,10 @@ footer p {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    header {
+        background-image: url('imagens/dpmoveis.jpeg'); /* Imagem específica para dispositivos móveis */
+    }
+
     header h1 {
         font-size: 2.5rem;
     }
@@ -255,8 +264,8 @@ footer p {
     }
 
     .galeria img {
-        width: 200px;
-        height: 150px;
+        width: 100%;
+        height: auto;
     }
 }
 

@@ -12,6 +12,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.querySelector('.btn-agendar').addEventListener('click', () => {
     alert("Você será redirecionado para o WhatsApp.");
 });
+document.addEventListener('scroll', function () {
+    const sections = document.querySelectorAll('section');
+    const windowHeight = window.innerHeight;
+
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop <= windowHeight * 0.8 && !section.classList.contains('fade-in')) {
+            section.classList.add('fade-in');
+            section.style.opacity = '1';
+        }
+    });
+});
+let timer;
+document.addEventListener('scroll', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        const sections = document.querySelectorAll('section');
+        const windowHeight = window.innerHeight;
+
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop <= windowHeight * 0.8 && !section.classList.contains('fade-in')) {
+                section.classList.add('fade-in');
+                section.style.opacity = '1';
+            }
+        });
+    }, 100); // Delay de 100ms para melhorar o desempenho
+});
+window.addEventListener('scroll', () => {
+    const btnTopo = document.getElementById('btnTopo');
+    if (window.scrollY > 300) {
+        btnTopo.style.display = 'block';
+    } else {
+        btnTopo.style.display = 'none';
+    }
+});
+
+function voltarAoTopo() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 
 // Código para o efeito de fade nas seções ao rolar a página
 document.addEventListener('scroll', function () {
