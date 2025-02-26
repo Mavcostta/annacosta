@@ -1,296 +1,361 @@
-/* Estilos globais */
-*, *::before, *::after {
+/* Reset Global */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-}
-
-html {
     scroll-behavior: smooth;
 }
 
+/* Fonte Padrão */
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-image: 
-        url('imagens/fundostudio.jpeg'), 
-        url('imagens/fundostudio.jpeg'); 
-    background-size: 120%; 
-    background-position: center; 
-    background-attachment: fixed; 
-    background-repeat: no-repeat; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
+    background: #371e32;
+    color: #333;
+    text-align: center;
 }
 
 /* Cabeçalho */
 header {
-    position: relative;
-    background-image: url('imagens/fundo.jpeg'); 
-    background-size: cover;
-    background-position: center;
-    color: white;
-    width: 100%;
-    text-align: center;
-    padding: 80px 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-}
-
-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    z-index: -1;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 4rem;
-    font-weight: 600;
+    padding: 100px 30px;
+    background-color: #371e32;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    animation: fadeInUp 2s forwards;
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    margin-top: 20px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-header nav ul li {
-    font-size: 1.2rem;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    transition: color 0.3s, transform 0.3s;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-header nav ul li a:hover {
-    color: #ff80b2;
-    transform: scale(1.1);
-}
-
-/* Estilo geral das seções */
-section {
-    text-align: center;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    backdrop-filter: blur(10px);
-    width: 100%;
-}
-
-.bem-vindo, .sobre-mim, .premiacoes, .servicos, .galeria, .contato {
+    background-image: url('imagens/imagemfundo1.jpeg');
     background-size: cover;
     background-position: center;
-    padding: 50px;
-    color: rgb(10, 8, 8);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.nome-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
 }
 
-.bem-vindo {
-    background-image: url('');
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
 }
 
-.sobre-mim {
-    background-image: url('');
-}
 
-.premiacoes {
-    background-image: url('');
-    backdrop-filter: blur(8px);
-}
-
-.servicos {
-    background-image: url('');
-    backdrop-filter: blur(8px);
-}
-
-.galeria {
-    background-image: url('');
-    backdrop-filter: blur(8px);
-}
-
-.contato {
-    background-image: url('');
-    backdrop-filter: blur(10px);
-}
-
-/* Galeria */
-.galeria .imagens-galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    justify-content: center;
-    width: 100%;
-}
-
-.galeria img {
-    width: 75%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.galeria img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Botões */
-button {
-    background-color: #ff80b2;
-    color: rgb(10, 10, 10);
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-button:hover {
-    background-color: #ff4d94;
-    transform: scale(1.1);
-}
-
-/* Redes sociais */
-.contato .social-links {
-    display: flex-wrap: wrap;
-    margin-top: 20px;
+/* Links de navegação - alinha à direita e aumenta o tamanho da fonte */
+nav ul {
+    list-style: none;
     display: flex;
-    justify-content: center;
     gap: 30px;
+    margin-right: 50px; /* Ajusta para ficar à direita */
+    position: absolute;
+    top: 20px; /* Move para o topo */
+    right: 30px; /* Alinha à direita */
 }
 
-.contato .social-links a {
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
     text-decoration: none;
-    color: rgba(17, 15, 17, 0.8);
-    font-size: 1rem;
-    transition: color 0.3s;
+    color: white;
+    font-weight: 600;
+    font-size: 1.3rem; /* Aumenta o tamanho da fonte */
+    transition: color 0.3s ease;
 }
 
-.contato .social-links a:hover {
-    color: #0a0a0a;
-}
-
-section {
-    opacity: 0; /* Inicia invisível */
-    transition: opacity 1.5s ease-out; /* Transição suave */
-}
-
-/* Rodapé */
-footer {
-    background-color: #ff80b2;
-    color: rgb(16, 16, 16);
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9rem;
+nav ul li a:hover {
+    color: #904ac6;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     header {
-        background-image: url('imagens/dpmoveis.jpeg'); /* Imagem específica para dispositivos móveis */
+        background-image: url('imagens/760img.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        flex-direction: column; /* Coloca os itens em coluna */
+        text-align: center;
     }
 
-    header h1 {
-        font-size: 2.5rem;
+    header .logo h1 {
+        font-size: 3rem; /* Ajusta o tamanho para telas menores */
     }
 
-    header nav ul {
+    nav ul {
         flex-direction: column;
         gap: 10px;
-        position: static;
-        margin-top: 20px;
+        margin-right: 0; /* Remove o espaçamento lateral */
+    }
+}
+
+/* Seções */
+section {
+    width: 100%;
+    padding: 80px 0;
+}
+/* Oculta as seções antes de aparecerem */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Quando a seção estiver visível, aparece suavemente */
+section.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Sobre */
+#sobre {
+    background-color: #371e32;
+    color: white;
+}
+
+#sobre h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Trabalhos - Carrossel */
+#trabalhos {
+    background-color: #100a0d;
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    padding: 40px 0;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* Oculta o conteúdo fora do carrossel */
+    width: 100%;  /* Ocupa toda a largura disponível */
+}
+
+.carousel-container {
+    display: flex;
+    gap: 20px; /* Espaço entre as imagens */
+    animation: rolarCarrossel 15s linear infinite; /* Animação para rolar para a direita e reiniciar */
+}
+
+.carousel-item {
+    width: 300px;  /* Largura dos itens do carrossel */
+    height: 200px; /* Altura dos itens do carrossel */
+    overflow: hidden;
+    border-radius: 10px;  /* Bordas arredondadas */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Animação do carrossel */
+@keyframes rolarCarrossel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.carousel-container {
+    animation: rolarCarrossel 15s linear infinite;
+}
+
+
+/* Responsividade do carrossel */
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 100%;
     }
 
-    .bem-vindo, .sobre-mim, .premiacoes, .servicos, .galeria, .contato {
-        padding: 30px;
+    .carousel-item {
+        width: 250px; /* Ajuste para dispositivos móveis */
+        height: 150px;
+    }
+}
+
+
+/* Serviços */
+#servicos {
+    background: #371e32;
+}
+
+#servicos h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #faf8f8;
+}
+
+.servicos-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.service {
+    background: linear-gradient(135deg, #d26ca4, #371e32);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service img {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.service h3 {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    color: #fbfafa;
+}
+
+.service p {
+    font-size: 1rem;
+    color: #faf8f8;
+    margin-top: 10px;
+}
+
+/* Comentários */
+#comentarios {
+    background: #100a0d;
+    color: #faf8f8;
+    
+}
+
+.comentarios {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.comentario {
+    background: linear-gradient(135deg, #d26ca4, #371e32);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    font-style: italic;
+}
+
+/* Contato */
+#contato {
+    background-color: #371e32;
+    color: white;
+}
+
+.contato-container {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contato-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.whatsapp {
+    background: linear-gradient(135deg, #d26ca4, #371e32);
+    color: white;
+}
+
+.instagram {
+    background: linear-gradient(135deg, #d26ca4, #371e32);
+    color: white;
+}
+
+.tiktok {
+    background: linear-gradient(135deg, #d26ca4, #371e32);
+    color: white;}
+
+.contato-link:hover {
+    opacity: 0.8;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .galeria .imagens-galeria {
+    nav ul {
+        flex-direction: column;
         gap: 10px;
     }
 
-    .galeria img {
-        width: 100%;
-        height: auto;
+    .servicos-grid {
+        flex-direction: column;
+        align-items: center;
     }
-}
 
-/* Carrossel no cabeçalho com transição suave */
-.carousel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    overflow: hidden;
-}
-
-.carousel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: slide 15s infinite;
-    transition: opacity 1s ease-in-out; /* Suaviza a transição entre as imagens */
-}
-
-@keyframes slide {
-    0% { transform: translateX(0); opacity: 1; }
-    33% { transform: translateX(-100%); opacity: 0; }
-    66% { transform: translateX(-200%); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+    .carousel-container {
+        width: 90%;
+    }
 }

@@ -1,75 +1,63 @@
-// Animações suaves para rolagem entre seções
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+let currentIndex = 0;
+const container = document.querySelector('.carousel-container');
+const items = document.querySelectorAll('.carousel-item');
+const totalItems = items.length;
 
-// Mensagem de redirecionamento para WhatsApp ao clicar no botão "Entrar em Contato"
-document.querySelector('.btn-agendar').addEventListener('click', () => {
-    alert("Você será redirecionado para o WhatsApp.");
-});
-document.addEventListener('scroll', function () {
-    const sections = document.querySelectorAll('section');
-    const windowHeight = window.innerHeight;
+function moveSlide(step) {
+    currentIndex += step;
 
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop <= windowHeight * 0.8 && !section.classList.contains('fade-in')) {
-            section.classList.add('fade-in');
-            section.style.opacity = '1';
-        }
-    });
-});
-let timer;
-document.addEventListener('scroll', () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-        const sections = document.querySelectorAll('section');
-        const windowHeight = window.innerHeight;
-
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop <= windowHeight * 0.8 && !section.classList.contains('fade-in')) {
-                section.classList.add('fade-in');
-                section.style.opacity = '1';
-            }
-        });
-    }, 100); // Delay de 100ms para melhorar o desempenho
-});
-window.addEventListener('scroll', () => {
-    const btnTopo = document.getElementById('btnTopo');
-    if (window.scrollY > 300) {
-        btnTopo.style.display = 'block';
-    } else {
-        btnTopo.style.display = 'none';
+    if (currentIndex < 0) {
+        currentIndex = totalItems - 1; // Vai para o último item
+    } else if (currentIndex >= totalItems) {
+        currentIndex = 0; // Volta para o primeiro
     }
-});
 
-function voltarAoTopo() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    updateCarousel();
 }
 
+function updateCarousel() {
+    const itemWidth = items[0].offsetWidth;  // Obtém a largura dos itens
+    container.style.transition = "transform 0.5s ease";  // Adiciona uma transição suave
+    container.style.transform = `translateX(-${currentIndex * itemWidth}px)`;  // Aplica o deslocamento
+}
 
-// Código para o efeito de fade nas seções ao rolar a página
-document.addEventListener('scroll', function () {
-    const sections = document.querySelectorAll('section');
-    const windowHeight = window.innerHeight;
+// Adicionando eventos aos botões
+document.addEventListener("DOMContentLoaded", () => {
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
 
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop <= windowHeight * 0.8) {
-            section.style.opacity = '1';
-            section.style.transition = 'opacity 1.5s ease-out';
-        }
-    });
+    // Eventos de clique
+    prevButton.addEventListener('click', () => moveSlide(-1));
+    nextButton.addEventListener('click', () => moveSlide(1));
+
+    // Atualização inicial do carrossel
+    updateCarousel();
 });
 
-// Transição de fade-in no cabeçalho
-document.addEventListener('DOMContentLoaded', function () {
-    const headerTitle = document.querySelector('header h1');
-    headerTitle.classList.add('fade-in-up');
+// Função para adicionar o nome no cabeçalho
+document.addEventListener("DOMContentLoaded", function () {
+    let header = document.querySelector("header");
+    let nome = document.createElement("h1");
+    nome.classList.add("nome-header");
+    nome.textContent = "ANNA COSTA";
+    header.appendChild(nome);
+});
+
+// Função para verificar se as seções estão visíveis
+document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll("section");
+
+    function verificarSeVisivel() {
+        sections.forEach(section => {
+            const posicao = section.getBoundingClientRect().top;
+            const alturaTela = window.innerHeight * 0.85;
+
+            if (posicao < alturaTela) {
+                section.classList.add("mostrar");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", verificarSeVisivel);
+    verificarSeVisivel(); // Executa na inicialização
 });
