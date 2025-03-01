@@ -15,6 +15,31 @@ body {
 }
 
 /* Cabeçalho */
+
+.nome-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    opacity: 0;
+    animation: fadeInText 2s ease-in-out forwards; /* Altera a animação para o nome */
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Animação de fade-in da imagem de fundo */
 header {
     min-height: 100vh;
     display: flex;
@@ -28,29 +53,18 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-}
-.nome-header {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3rem;
-    font-weight: bold;
-    color: white;
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards;
+    animation: fadeInBackground 2s ease-in-out;  /* Animação da imagem */
 }
 
-@keyframes fadeIn {
-    from {
+@keyframes fadeInBackground {
+    0% {
         opacity: 0;
-        transform: translate(-50%, -60%);
     }
-    to {
+    100% {
         opacity: 1;
-        transform: translate(-50%, -50%);
     }
 }
+
 
 
 /* Links de navegação - alinha à direita e aumenta o tamanho da fonte */
@@ -126,24 +140,76 @@ section.mostrar {
     padding: 20px;
 }
 
-/* Sobre */
+/* Seção Sobre */
 #sobre {
     background-color: #371e32;
     color: white;
+    padding: 80px 0;
+    text-align: center;
 }
 
 #sobre h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
-/* Trabalhos - Carrossel */
+#sobre h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #f7f7f7;
+}
+
+#sobre p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+/* Botão Agendar Agora */
+.agendar-agora {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 20px 40px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #d26ca4, #371e32);
+    font-size: 1.5rem;
+    transition: 0.3s ease-in-out;
+    display: inline-block;
+    margin-top: 30px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.agendar-agora:hover {
+    opacity: 0.9;
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #sobre h2 {
+        font-size: 2rem;
+    }
+
+    #sobre h3 {
+        font-size: 1.5rem;
+    }
+
+    .agendar-agora {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+    }
+}
+
+
+/* Carrossel */
 #trabalhos {
     background-color: #100a0d;
     color: white;
     font-size: 1.4rem;
     margin-bottom: 10px;
     padding: 40px 0;
+    text-align: center;
 }
 
 .carousel {
@@ -153,69 +219,76 @@ section.mostrar {
     position: relative;
     overflow: hidden; /* Oculta o conteúdo fora do carrossel */
     width: 100%;  /* Ocupa toda a largura disponível */
+    padding: 0 10px; /* Adiciona padding lateral para evitar corte das extremidades */
 }
 
 .carousel-container {
     display: flex;
-    gap: 20px; /* Espaço entre as imagens */
-    animation: rolarCarrossel 15s linear infinite; /* Animação para rolar para a direita e reiniciar */
+    gap: 10px; /* Espaço entre as imagens */
+    transition: transform 0.5s ease-in-out; /* Transição suave */
+    width: 100%; /* Ajusta a largura para o contêiner */
+    padding: 0 10px; /* Garantir que as extremidades não cortem as imagens */
+    box-sizing: border-box; /* Inclui o padding na largura do contêiner */
 }
 
 .carousel-item {
-    width: 300px;  /* Largura dos itens do carrossel */
-    height: 200px; /* Altura dos itens do carrossel */
+    position: relative;
+    width: 20%;  /* Ajustando para que 5 imagens caibam na tela (100% / 5 = 20%, mas vou diminuir para 18% para dar um espaço entre elas) */
+    height: 400px; /* Altura dos itens do carrossel */
     overflow: hidden;
-    border-radius: 10px;  /* Bordas arredondadas */
+    border-radius: 15px;  /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona sombra para destacar as imagens */
+    transition: transform 0.3s ease;
+    flex-shrink: 0; /* Impede que o item encolha */
 }
 
 .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* Garante que a imagem cubra o espaço sem distorcer */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    border-radius: 10px; /* Bordas arredondadas nas imagens */
+    transition: transform 0.3s ease;
 }
 
-button {
+/* Efeito de zoom ao passar o mouse */
+.carousel-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Estilo para a descrição (invisível por padrão) */
+.descricao {
+    position: absolute;
+    bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     color: white;
-    border: none;
+    width: 100%;
+    text-align: center;
     padding: 10px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
+    display: none;
+    font-size: 1rem;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
-
-/* Animação do carrossel */
-@keyframes rolarCarrossel {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+/* Exibe a descrição ao passar o mouse */
+.carousel-item:hover .descricao {
+    display: block;
 }
-
-.carousel-container {
-    animation: rolarCarrossel 15s linear infinite;
-}
-
 
 /* Responsividade do carrossel */
 @media (max-width: 768px) {
+    .carousel {
+        width: 100%; /* Limita o tamanho do carrossel em dispositivos móveis */
+        padding: 0 10px; /* Ajusta o padding para não cortar as imagens */
+    }
+
     .carousel-container {
-        width: 100%;
+        flex-wrap: nowrap; /* Garante que as imagens fiquem em uma única linha */
     }
 
     .carousel-item {
-        width: 250px; /* Ajuste para dispositivos móveis */
-        height: 150px;
+        width: 100%; /* Ajuste para dispositivos móveis (as imagens ocuparão toda a largura da tela) */
+        height: 180px; /* Ajuste a altura das imagens */
     }
 }
-
 
 /* Serviços */
 #servicos {
@@ -293,6 +366,7 @@ button {
 #contato {
     background-color: #371e32;
     color: white;
+    position: relative;
 }
 
 .contato-container {
@@ -324,38 +398,108 @@ button {
 
 .tiktok {
     background: linear-gradient(135deg, #d26ca4, #371e32);
-    color: white;}
+    color: white;
+}
 
 .contato-link:hover {
     opacity: 0.8;
 }
 
-/* Footer */
-footer {
-    background-color: #333;
+/* Botão Agendar Agora */
+.agendar-agora {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #d26ca4;
     color: white;
-    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
     margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.agendar-agora:hover {
+    background-color: #904ac6;
+}
+
+/* Imagem de Anna - Rosto Circular */
+.imagem-rosto {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.imagem-rosto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mensagem Flutuante ao lado da foto */
+.mensagem-flutuante {
+    position: absolute;
+    bottom: 60px; /* Ajuste dependendo da altura da imagem */
+    right: 160px; /* Distância da imagem */
+    background-color: #d26ca4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: aparecer 3s forwards; /* Animação de aparecer */
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .servicos-grid {
+    /* Ajuste do container */
+    .contato-container {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
 
-    .carousel-container {
-        width: 90%;
+    /* Ajuste do botão Agendar Agora */
+    .agendar-agora {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* Ajuste da imagem de Anna */
+    .imagem-rosto {
+        width: 90px;
+        height: 90px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    /* Ajuste da mensagem flutuante para dispositivos móveis */
+    .mensagem-flutuante {
+        position: relative; /* Altera para relative para evitar sobreposição */
+        bottom: 0; /* Retira a sobreposição na parte inferior */
+        right: 0; /* Ajuste para centralizar a mensagem na tela */
+        margin-top: 15px; /* Coloca um espaço entre a foto e a mensagem */
+        max-width: 100%; /* Permite que a mensagem tenha o tamanho adequado */
+        font-size: 14px; /* Ajusta o tamanho da fonte */
+        padding: 8px 15px; /* Reduz o espaçamento interno */
+        box-shadow: none; /* Remove a sombra para um visual mais clean */
     }
 }
