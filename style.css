@@ -367,19 +367,25 @@ section.mostrar {
     margin-top: 10px;
 }
 
-/* Comentários */
-#comentarios {
+#feedback {
     background: #100a0d;
     color: #faf8f8;
-    
+    padding: 40px 20px;
+    scroll-margin-top: 80px; /* Isso ajuda quando tem menu fixo */
+}
+
+#feedback h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #fffdfe;
 }
 
 .comentarios {
     display: flex;
-    padding: 10px;
     justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .comentario {
@@ -387,10 +393,19 @@ section.mostrar {
     color: white;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     width: 250px;
     font-style: italic;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
+
+.comentario:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
 
 /* Contato */
 #contato {
@@ -456,7 +471,7 @@ section.mostrar {
 .imagem-rosto {
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -472,21 +487,58 @@ section.mostrar {
     object-fit: cover;
 }
 
-/* Mensagem Flutuante ao lado da foto */
 .mensagem-flutuante {
     position: absolute;
-    bottom: 60px; /* Ajuste dependendo da altura da imagem */
-    right: 160px; /* Distância da imagem */
+    bottom: 80px; /* Espaço acima da imagem */
+    left: 150px;  /* Distância lateral */
     background-color: #d26ca4;
     color: white;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 20px; /* Borda mais suave */
     font-weight: bold;
+    font-size: 14px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
-    animation: aparecer 3s forwards; /* Animação de aparecer */
+    animation: aparecer 2s ease-in-out forwards;
+    z-index: 15;
 }
 
+/* Animação de entrada */
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.whatsapp-fixo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .whatsapp-fixo:hover {
+    transform: scale(1.1);
+  }
+  
+  
 @keyframes aparecer {
     0% {
         opacity: 0;
@@ -515,8 +567,8 @@ section.mostrar {
 
     /* Ajuste da imagem de Anna */
     .imagem-rosto {
-        width: 90px;
-        height: 90px;
+        width: 70px;
+        height: 70px;
         bottom: 10px;
         right: 10px;
     }
@@ -533,3 +585,42 @@ section.mostrar {
         box-shadow: none; /* Remove a sombra para um visual mais clean */
     }
 }
+.contato-link {
+    min-width: 150px; /* força todos os botões a terem no mínimo esse tamanho */
+    text-align: center; /* centraliza o texto e o ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .mensagem-flutuante {
+      position: static; /* Tira o posicionamento absoluto */
+      margin: 10px auto; /* Centraliza */
+      display: block;
+      text-align: center;
+      width: fit-content;
+      opacity: 1;
+      transform: none;
+      animation: none; /* Se quiser tirar a animação em telas menores */
+    }
+  }
+  @media (max-width: 992px) {
+    .sobre {
+      flex-direction: column; /* empilha os itens */
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .sobre-img img {
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+  
+    .sobre-texto {
+      padding: 0 20px;
+    }
+  }
+  
