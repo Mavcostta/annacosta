@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://annacostadesigner.com/sitemap.xml
+
+# Bloquear acesso a arquivos sensíveis
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /package.json
+Disallow: /gulpfile.js
+
+# Permitir crawlers importantes
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

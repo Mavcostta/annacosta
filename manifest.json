@@ -1,0 +1,58 @@
+{
+  "name": "Studio Anna Costa - Cílios e Sobrancelhas",
+  "short_name": "Anna Costa",
+  "description": "Realce seu olhar com design de sobrancelhas e extensão de cílios em Guarulhos",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#371e32",
+  "theme_color": "#d26ca4",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-BR",
+  "categories": ["beauty", "lifestyle", "health"],
+  "icons": [
+    {
+      "src": "/imagens/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/imagens/flutuante.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/imagens/flutuante.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Agendar Consulta",
+      "short_name": "Agendar",
+      "description": "Agende sua consulta online",
+      "url": "/#contato",
+      "icons": [
+        {
+          "src": "/imagens/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Ver Serviços",
+      "short_name": "Serviços",
+      "description": "Conheça nossos serviços",
+      "url": "/#servicos",
+      "icons": [
+        {
+          "src": "/imagens/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

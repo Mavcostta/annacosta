@@ -1,0 +1,37 @@
+{
+  "name": "siteanna",
+  "version": "1.0.0",
+  "description": "\"# Studio Anna Costa",
+  "main": "script.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "node build.js",
+    "deploy": "npm run build && echo 'Site pronto para deploy em ./dist/'",
+    "clean": "gulp clean",
+    "start": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mavcostta/annacosta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mavcostta/annacosta/issues"
+  },
+  "homepage": "https://github.com/Mavcostta/annacosta#readme",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "del": "^8.0.0",
+    "gulp": "^5.0.1",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^5.0.0"
+  }
+}
