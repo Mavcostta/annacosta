@@ -4209,6 +4209,49 @@ footer::before {
   color: rgba(255, 255, 255, 0.9);
 }
 
+.hero-title {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-size: 1.3rem;
+}
+
+.hero-info {
+  font-size: 1.1rem;
+  color: #ffffff !important;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.booking-important {
+  background: rgba(184, 110, 121, 0.15);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #b86e79;
+  margin-top: 20px;
+}
+
+.booking-footer {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.footer-text {
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+
+.booking-footer .social-links {
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
 .booking-section {
   padding: 60px 20px;
   background: var(--bg-primary);
@@ -4524,24 +4567,246 @@ footer::before {
 }
 
 /* Responsivo */
+@media (max-width: 1024px) {
+  .booking-hero {
+    padding: 100px 20px 60px;
+  }
+
+  .hero-title {
+    font-size: 2.8rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem !important;
+  }
+
+  .hero-info {
+    font-size: 1.05rem !important;
+  }
+
+  .booking-section {
+    padding: 40px 15px;
+  }
+
+  .booking-card {
+    padding: 30px 25px;
+  }
+}
+
 @media (max-width: 768px) {
-  .booking-hero h1 {
-    font-size: 2rem;
+  .booking-hero {
+    padding: 90px 15px 50px;
   }
 
-  .service-options {
-    grid-template-columns: 1fr;
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.2;
   }
 
-  .calendar-day {
-    font-size: 0.9rem;
+  .hero-subtitle {
+    font-size: 1rem !important;
   }
 
-  .time-slots {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  .hero-info {
+    font-size: 0.95rem !important;
+  }
+
+  .booking-section {
+    padding: 30px 10px;
   }
 
   .booking-card {
     padding: 25px 20px;
+    border-radius: 15px;
+  }
+
+  .booking-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .service-options {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .option-content {
+    padding: 20px 15px;
+  }
+
+  .option-content i {
+    font-size: 2rem;
+  }
+
+  .option-content h3 {
+    font-size: 1rem;
+  }
+
+  .calendar-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .calendar-nav {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .calendar-days {
+    gap: 5px;
+  }
+
+  .calendar-day {
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  .calendar-day.fully-booked::after {
+    font-size: 12px;
+    top: 1px;
+    right: 1px;
+  }
+
+  .time-slots {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .summary-item span {
+    text-align: left;
+  }
+
+  .btn-confirm-booking {
+    font-size: 1rem;
+    padding: 16px;
+  }
+
+  .booking-note {
+    font-size: 0.8rem;
+  }
+
+  .booking-important {
+    padding: 12px;
+  }
+hero-title {
+    font-size: 1.6rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem !important;
+  }
+
+  .hero-info {
+    font-size: 0.85rem !important;
+  }
+
+  .booking-section {
+    padding: 20px 5px;
+  }
+
+  .booking-card {
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+
+  .booking-card h2 {
+    font-size: 1.1rem;
+    gap: 8px;
+  }
+
+  .booking-card h2 i {
+    font-size: 1.1rem;
+  }
+
+  .option-content {
+    padding: 18px 12px;
+  }
+
+  .option-content i {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  .option-content h3 {
+    font-size: 0.95rem;
+  }
+
+  .option-content p {
+    font-size: 0.85rem;
+  }
+
+  .calendar-header {
+    margin-bottom: 15px;
+  }
+
+  .calendar-header h3 {
+    font-size: 1rem;
+  }
+
+  .calendar-nav {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .calendar-nav i {
+    font-size: 0.9rem;
+  }
+
+  .calendar-days {
+    gap: 4px;
+  }
+
+  .calendar-day {
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border-width: 1px;
+  }
+
+  .calendar-day.fully-booked {
+    border-width: 1px !important;
+  }
+
+  .calendar-day.fully-booked::after {
+    font-size: 10px;
+    top: 0px;
+    right: 0px;
+  }
+
+  .btn-confirm-booking {
+    font-size: 0.95rem;
+    padding: 14px;
+    gap: 8px;
+  }
+
+  .btn-confirm-booking i {
+    font-size: 1.2rem;
+  }
+
+  .booking-note {
+    font-size: 0.75rem;
+  }
+
+  .booking-important {
+    padding: 10px;
+  }
+
+  .booking-footer {
+    padding: 20px 10px
+    padding: 14px;
+    gap: 8px;
+  }
+
+  .btn-confirm-booking i {
+    font-size: 1.2rem;
+  }
+
+  .booking-note {
+    font-size: 0.75rem;
+    padding: 10px !important;
   }
 }
