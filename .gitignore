@@ -16,8 +16,8 @@ dist/
 
 # API Keys e configurações sensíveis
 config.js
-calendar-config.js
 *-config-private.js
+# calendar-config.js - removido do ignore pois é necessário para GitHub Pages
 
 # Arquivos temporários
 *.tmp
