@@ -1295,22 +1295,24 @@
     <!-- Script do Botão Voltar ao Topo -->
     <script>
       // Mostrar/ocultar botão ao rolar
-      window.addEventListener('scroll', function() {
-        const backToTop = document.getElementById('backToTop');
+      window.addEventListener("scroll", function () {
+        const backToTop = document.getElementById("backToTop");
         if (window.pageYOffset > 300) {
-          backToTop.classList.add('show');
+          backToTop.classList.add("show");
         } else {
-          backToTop.classList.remove('show');
+          backToTop.classList.remove("show");
         }
       });
 
       // Voltar ao topo suavemente ao clicar
-      document.getElementById('backToTop').addEventListener('click', function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
+      document
+        .getElementById("backToTop")
+        .addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
         });
-      });
     </script>
 
     <!-- Google Reviews Integration Script -->
