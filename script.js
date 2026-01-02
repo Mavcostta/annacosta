@@ -279,3 +279,143 @@ if ("performance" in window && "PerformanceObserver" in window) {
     console.log("Performance monitoring not supported");
   }
 }
+
+// ==================== HERO IMAGE CAROUSEL ====================
+document.addEventListener("DOMContentLoaded", function () {
+  const heroImages = document.querySelectorAll(".hero-image");
+  let currentImageIndex = 0;
+
+  if (heroImages.length === 0) return;
+
+  function showNextImage() {
+    // Remove active da imagem atual
+    heroImages[currentImageIndex].classList.remove("active");
+
+    // Próxima imagem
+    currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+
+    // Adiciona active na nova imagem
+    heroImages[currentImageIndex].classList.add("active");
+  }
+
+  // Troca automática a cada 4 segundos
+  setInterval(showNextImage, 4000);
+});
+
+// ==================== HERO TESTIMONIALS CAROUSEL ====================
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".testimonial-slide");
+  const dots = document.querySelectorAll(".testimonial-dots .dot");
+  let currentSlide = 0;
+
+  if (slides.length === 0) return; // Sai se não houver slides
+
+  function showSlide(index) {
+    // Remove active de todos
+    slides.forEach((slide) => slide.classList.remove("active"));
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    // Adiciona active no slide atual
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Troca automática a cada 5 segundos
+  setInterval(nextSlide, 5000);
+
+  // Clique nos dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentSlide = index;
+      showSlide(currentSlide);
+    });
+  });
+});
+
+// ==================== PORTFOLIO CAROUSEL ====================
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".portfolio-track");
+  const items = document.querySelectorAll(".portfolio-item");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  const indicatorsContainer = document.querySelector(".carousel-indicators");
+
+  if (!track || items.length === 0) return;
+
+  let currentIndex = 0;
+
+  function getItemsPerView() {
+    return window.innerWidth > 1024 ? 3 : window.innerWidth > 768 ? 2 : 1;
+  }
+
+  function getTotalSlides() {
+    return Math.ceil(items.length / getItemsPerView());
+  }
+
+  // Criar indicadores iniciais
+  function createIndicators() {
+    indicatorsContainer.innerHTML = "";
+    const totalSlides = getTotalSlides();
+    for (let i = 0; i < totalSlides; i++) {
+      const indicator = document.createElement("span");
+      indicator.classList.add("indicator");
+      if (i === 0) indicator.classList.add("active");
+      indicator.addEventListener("click", () => goToSlide(i));
+      indicatorsContainer.appendChild(indicator);
+    }
+  }
+
+  createIndicators();
+
+  function updateCarousel() {
+    const itemsPerView = getItemsPerView();
+    const itemWidth = items[0].offsetWidth;
+    const gap = 20;
+    const offset = -(currentIndex * itemsPerView * (itemWidth + gap));
+    track.style.transform = `translateX(${offset}px)`;
+
+    // Atualizar indicadores
+    document
+      .querySelectorAll(".carousel-indicators .indicator")
+      .forEach((ind, idx) => {
+        ind.classList.toggle("active", idx === currentIndex);
+      });
+  }
+
+  function goToSlide(index) {
+    const totalSlides = getTotalSlides();
+    currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+    updateCarousel();
+  }
+
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    const totalSlides = getTotalSlides();
+    if (currentIndex < totalSlides - 1) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  // Responsive: recalcular ao redimensionar
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      currentIndex = 0;
+      createIndicators();
+      updateCarousel();
+    }, 250);
+  });
+});

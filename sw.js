@@ -1,12 +1,16 @@
-const CACHE_NAME = "anna-costa-v1.0.0";
+const CACHE_NAME = "anna-costa-v1.2.0";
 const urlsToCache = [
   "/",
   "/index.html",
   "/style.css",
   "/script.js",
   "/imagens/favicon.ico",
+  "/imagens/flutuante.webp",
   "/imagens/flutuante.jpeg",
-  // Adicione outras imagens importantes
+  "/extensao-cilios-guarulhos.html",
+  "/design-sobrancelhas-guarulhos.html",
+  "/lash-lifting-guarulhos.html",
+  "/brow-lamination-guarulhos.html",
 ];
 
 // Install event - cache resources
@@ -14,18 +18,33 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Opened cache");
-      return cache.addAll(urlsToCache);
+      return cache.addAll(urlsToCache).catch((err) => {
+        console.error("Failed to cache:", err);
+      });
     })
   );
+  // Força ativação imediata
+  self.skipWaiting();
 });
 
-// Fetch event - serve from cache when offline
+// Fetch event - Network First com fallback para cache (melhor para SEO)
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      // Return cached version or fetch from network
-      return response || fetch(event.request);
-    })
+    fetch(event.request)
+      .then((response) => {
+        // Se a resposta é válida, clona e armazena no cache
+        if (response.status === 200) {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseClone);
+          });
+        }
+        return response;
+      })
+      .catch(() => {
+        // Se falhar, tenta buscar do cache
+        return caches.match(event.request);
+      })
   );
 });
 
@@ -43,4 +62,6 @@ self.addEventListener("activate", (event) => {
       );
     })
   );
+  // Assume controle de todas as páginas imediatamente
+  return self.clients.claim();
 });

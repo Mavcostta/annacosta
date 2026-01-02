@@ -14,6 +14,16 @@ dist/
 .env.test.local
 .env.production.local
 
+# API Keys e configurações sensíveis
+config.js
+calendar-config.js
+*-config-private.js
+
+# Arquivos temporários
+*.tmp
+*.temp
+index-updated.html
+
 # Logs
 logs
 *.log

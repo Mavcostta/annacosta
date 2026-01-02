@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX", {
+        send_page_view: true,
+        anonymize_ip: true,
+      });
+
+      // Event tracking helper
+      window.trackEvent = function (category, action, label) {
+        gtag("event", action, {
+          event_category: category,
+          event_label: label,
+        });
+      };
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -19,55 +44,98 @@
     <!-- Open Graph para compartilhamento -->
     <meta
       property="og:title"
-      content="Studio Anna Costa - Cílios e Sobrancelhas em Guarulhos"
+      content="Anna Costa Designer - Cílios e Sobrancelhas em Guarulhos | Design Profissional"
     />
     <meta
       property="og:description"
-      content="Realce seu olhar com design de sobrancelhas e extensão de cílios em Guarulhos. Atendimento profissional com Anna Costa."
+      content="Especialista em extensão de cílios e design de sobrancelhas em Guarulhos. Volume Brasileiro, Lash Lifting, Brow Lamination e Designer com Henna. 5 estrelas no Google!"
     />
-    <meta property="og:image" content="imagens/flutuante.jpeg" />
-    <meta property="og:url" content="https://annacosta.com" />
+    <meta
+      property="og:image"
+      content="https://annamrdesigner.com.br/imagens/flutuante.jpeg"
+    />
+    <meta property="og:url" content="https://annamrdesigner.com.br/" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Studio Anna Costa - Cílios e Sobrancelhas em Guarulhos"
+      content="Anna Costa Designer - Cílios e Sobrancelhas em Guarulhos"
     />
     <meta
       name="twitter:description"
-      content="Realce seu olhar com design de sobrancelhas e extensão de cílios em Guarulhos. Atendimento profissional com Anna Costa."
+      content="Especialista em extensão de cílios e design de sobrancelhas em Guarulhos. Volume Brasileiro, Lash Lifting, Brow Lamination. Avaliação 5.0 ⭐"
     />
-    <meta name="twitter:image" content="imagens/flutuante.jpeg" />
+    <meta
+      name="twitter:image"
+      content="https://annamrdesigner.com.br/imagens/flutuante.jpeg"
+    />
 
-    <title>Studio Anna Costa - Cílios e Sobrancelhas em Guarulhos</title>
+    <title>
+      Anna Costa Designer - Cílios e Sobrancelhas em Guarulhos | Volume
+      Brasileiro, Lash Lifting
+    </title>
 
+    <!-- DNS Prefetch para domínios externos - Acelera conexões -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://wa.me" />
+
+    <!-- Preload CSS crítico -->
+    <link rel="preload" href="style.css?v=1.1" as="style" />
     <link rel="stylesheet" href="style.css?v=1.1" />
+
+    <!-- Preconnect para recursos críticos (prioridade alta) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+    <!-- Fontes otimizadas (consolidadas em uma única requisição) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Great+Vibes&family=Cinzel:wght@400..900&family=Satisfy&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Font Awesome com defer -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
     />
-    <link rel="icon" href="imagens/favicon.ico" type="image/png" />
+
+    <!-- Favicon - Múltiplos formatos para compatibilidade -->
+    <link rel="icon" type="image/x-icon" href="/imagens/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/imagens/favicon.ico" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
-      rel="stylesheet"
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/imagens/flutuante.jpeg"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
-      rel="stylesheet"
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/imagens/flutuante.jpeg"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap"
-      rel="stylesheet"
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/imagens/flutuante.jpeg"
     />
 
     <!-- Schema Markup for SEO -->
@@ -75,10 +143,12 @@
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Studio Anna Costa",
-        "description": "Especialista em extensão de cílios e design de sobrancelhas em Guarulhos.",
-        "url": "https://annacosta.com", // Substitua pela URL real
+        "name": "Anna Costa Designer",
+        "description": "Especialista em extensão de cílios e design de sobrancelhas em Guarulhos. Volume Brasileiro, Lash Lifting, Brow Lamination e Designer com Henna.",
+        "url": "https://annamrdesigner.com.br",
         "telephone": "+5511987382366",
+        "priceRange": "$$",
+        "image": "https://annamrdesigner.com.br/imagens/flutuante.jpeg",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Guarulhos",
@@ -87,7 +157,7 @@
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": "-23.4628", // Coordenadas aproximadas de Guarulhos
+          "latitude": "-23.4628",
           "longitude": "-46.5333"
         },
         "hasOfferCatalog": {
@@ -98,8 +168,8 @@
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Extensão de Cílios",
-                "description": "Extensão de cílios com técnicas profissionais e produtos de alta qualidade"
+                "name": "Extensão de Cílios - Volume Brasileiro",
+                "description": "Extensão de cílios com técnicas profissionais e produtos de alta qualidade. Volume Brasileiro, 6D e efeito Fox."
               }
             },
             {
@@ -107,7 +177,7 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Design de Sobrancelhas",
-                "description": "Design personalizado de sobrancelhas com henna e micropigmentação"
+                "description": "Design personalizado de sobrancelhas com henna, micropigmentação e técnicas avançadas."
               }
             },
             {
@@ -115,7 +185,7 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Lash Lifting",
-                "description": "Tratamento para curvatura e alongamento dos cílios naturais"
+                "description": "Tratamento para curvatura e alongamento dos cílios naturais com resultados duradouros."
               }
             },
             {
@@ -123,18 +193,19 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Brow Lamination",
-                "description": "Tratamento para definição e volume das sobrancelhas"
+                "description": "Tratamento para definição, volume e alinhamento das sobrancelhas com efeito profissional."
               }
             }
           ]
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "127",
+          "ratingValue": "5.0",
+          "reviewCount": "21",
           "bestRating": "5",
           "worstRating": "1"
-        }
+        },
+        "sameAs": ["https://www.instagram.com/annamrdesigner/"]
       }
     </script>
 
@@ -229,6 +300,7 @@
       class="whatsapp-fixo"
       target="_blank"
       aria-label="Converse pelo WhatsApp"
+      onclick="trackEvent('CTA', 'click', 'WhatsApp Fixo')"
     >
       <i class="fab fa-whatsapp"></i>
     </a>
@@ -250,6 +322,7 @@
         <li><a href="#meu-studio">Meu Studio</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#feedback">Feedback</a></li>
+        <li><a href="agendamento.html">Agendamento</a></li>
         <li><a href="#contato">Contato</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
@@ -260,13 +333,79 @@
         <div class="texto-hero">
           <div class="logo-animation">
             <h1 class="animated-name">Anna Costa</h1>
+
+            <!-- Carrossel de Depoimentos -->
+            <div class="hero-testimonials">
+              <div class="testimonial-slide active">
+                <p class="testimonial-text">
+                  “Trabalho Impecável! Sem dúvidas uma profissional que ama o
+                  que faz e faz com excelência.”
+                </p>
+                <p class="testimonial-author">- Pamela Santos</p>
+              </div>
+              <div class="testimonial-slide">
+                <p class="testimonial-text">
+                  “Simplesmente perfeito!! Ana tem as melhores técnicas e os
+                  melhores produtos.”
+                </p>
+                <p class="testimonial-author">- Nicole Radeski</p>
+              </div>
+              <div class="testimonial-slide">
+                <p class="testimonial-text">
+                  “Um atendimento impecável do começo ao fim, indico de olhos
+                  fechados!”
+                </p>
+                <p class="testimonial-author">- Evelyn</p>
+              </div>
+              <div class="testimonial-slide">
+                <p class="testimonial-text">
+                  “Perfeita em cada detalhe, ótimo atendimento e um belíssimo
+                  trabalho.”
+                </p>
+                <p class="testimonial-author">- Joyce Silva</p>
+              </div>
+              <div class="testimonial-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="imagem-hero">
-          <img
-            src="imagens/flutuante.jpeg"
-            alt="Anna Costa - Especialista em extensão de cílios e design de sobrancelhas em Guarulhos"
-          />
+          <div class="hero-image-carousel">
+            <img
+              src="imagens/flutuante.jpeg"
+              alt="Anna Costa - Especialista em extensão de cílios e design de sobrancelhas em Guarulhos"
+              class="hero-image active"
+              fetchpriority="high"
+            />
+            <img
+              src="imagens/anna (1).jpeg"
+              alt="Anna Costa - Profissional de cílios e sobrancelhas"
+              class="hero-image"
+              loading="lazy"
+            />
+            <img
+              src="imagens/anna (2).jpeg"
+              alt="Anna Costa - Designer de sobrancelhas"
+              class="hero-image"
+              loading="lazy"
+            />
+            <img
+              src="imagens/anna (3).jpeg"
+              alt="Anna Costa - Especialista em extensão de cílios"
+              class="hero-image"
+              loading="lazy"
+            />
+            <img
+              src="imagens/anna (4).jpeg"
+              alt="Anna Costa - Profissional certificada"
+              class="hero-image"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -289,7 +428,7 @@
                   beleza única de cada mulher."
                 </p>
                 <p>
-                  Com mais de <strong>4 anos de experiência</strong> no mercado
+                  Com mais de <strong>5 anos de experiência</strong> no mercado
                   da beleza, especializei-me em técnicas que combinam
                   <strong>arte e ciência</strong> para resultados naturais e
                   duradouros.
@@ -338,7 +477,7 @@
                     <i class="fas fa-calendar-alt"></i>
                   </div>
                   <div class="estatistica-content">
-                    <div class="numero">4+</div>
+                    <div class="numero">5+</div>
                     <div class="label">Anos de Experiência</div>
                   </div>
                 </div>
@@ -348,7 +487,7 @@
                     <i class="fas fa-users"></i>
                   </div>
                   <div class="estatistica-content">
-                    <div class="numero">2000+</div>
+                    <div class="numero">2500+</div>
                     <div class="label">Clientes Satisfeitas</div>
                   </div>
                 </div>
@@ -446,7 +585,7 @@
                 />
                 <div class="gallery-overlay">
                   <h4>Experiência</h4>
-                  <p>4+ anos de expertise</p>
+                  <p>5+ anos de expertise</p>
                 </div>
               </div>
               <div class="gallery-item">
@@ -538,71 +677,227 @@
       </div>
     </section>
 
+    <!-- Galeria de Serviços -->
     <section id="servicos">
       <div class="container">
         <h2>Serviços</h2>
-        <div class="servicos-grid">
-          <div class="service">
-            <img
-              src="imagens/trab1.jpeg"
-              alt="Extensão de cílios aplicada por Anna Costa - Resultado volumoso e natural"
-            />
-            <div class="info-overlay">
-              <h3>Extensão de Cílios</h3>
-              <p>Realce seu olhar com cílios curvados e volumosos.</p>
+        <p class="portfolio-subtitle">
+          Confira alguns dos meus trabalhos e transformações
+        </p>
+
+        <div class="portfolio-carousel">
+          <button class="carousel-btn prev-btn" aria-label="Anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <div class="portfolio-track">
+            <div class="portfolio-item">
+              <picture>
+                <source
+                  srcset="imagens/Design com Henna + Brasileiro Capping.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="imagens/Design com Henna + Brasileiro Capping.jpeg"
+                  alt="Design com Henna + Brasileiro Capping"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="portfolio-caption">
+                <h3>Design com Henna + Brasileiro Capping</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <picture>
+                <source
+                  srcset="imagens/Design personalizado + Volume Brasileiro.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="imagens/Design personalizado + Volume Brasileiro.jpeg"
+                  alt="Design personalizado + Volume Brasileiro"
+                  loading="lazy"
+                />
+              </picture>
+              />
+              <div class="portfolio-caption">
+                <h3>Design Personalizado + Volume Brasileiro</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/Design personalizado + Volume Brasileiro (2).jpeg"
+                alt="Design personalizado + Volume Brasileiro"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Design Personalizado + Volume Brasileiro</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/Design personalizado + Volume Brasileiro marrom.jpeg"
+                alt="Design personalizado + Volume Brasileiro Marrom"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Design + Volume Brasileiro Marrom</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/Design personalizado + Volume Brasileiro marrom (2).jpeg"
+                alt="Design personalizado + Volume Brasileiro Marrom"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Design + Volume Brasileiro Marrom</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/Efeito Fox delineado.jpeg"
+                alt="Efeito Fox Delineado"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Efeito Fox Delineado</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/Lash lifting e design com Henna.jpeg"
+                alt="Lash Lifting e Design com Henna"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Lash Lifting + Design com Henna</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/Volume 6D + Brow Lamination.jpeg"
+                alt="Volume 6D + Brow Lamination"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Volume 6D + Brow Lamination</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/Volume 6D + Brow Lamination (2).jpeg"
+                alt="Volume 6D + Brow Lamination"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Volume 6D + Brow Lamination</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/brasileirocapping.jpeg"
+                alt="Brasileiro Capping"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Brasileiro Capping</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/designercomhenna.jpeg"
+                alt="Designer com Henna"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Designer com Henna</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/efeitofox.jpeg"
+                alt="Efeito Fox"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Efeito Fox</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/efeitofoxdelineado.jpeg"
+                alt="Efeito Fox Delineado"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Efeito Fox Delineado</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/efeitofoxmarrom.jpeg"
+                alt="Efeito Fox Marrom"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Efeito Fox Marrom</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/lashliftingedesignercomhenna.jpeg"
+                alt="Lash Lifting e Designer com Henna"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Lash Lifting e Designer com Henna</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/laslifting.jpeg"
+                alt="Lash Lifting"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Lash Lifting</h3>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <img
+                src="imagens/WhatsApp Image 2026-01-01 at 22.14.29.jpeg"
+                alt="Trabalho Personalizado"
+                loading="lazy"
+              />
+              <div class="portfolio-caption">
+                <h3>Trabalho Personalizado</h3>
+              </div>
             </div>
           </div>
-          <div class="service">
-            <img
-              src="imagens/trab5.jpeg"
-              alt="Design de sobrancelhas personalizado no Studio Anna Costa"
-            />
-            <div class="info-overlay">
-              <h3>Designer de Sobrancelhas</h3>
-              <p>Sobrancelhas bem definidas para um visual harmonioso.</p>
-            </div>
-          </div>
-          <div class="service">
-            <img
-              src="imagens/trab2.jpeg"
-              alt="Manutenção de extensão de cílios para prolongar o efeito"
-            />
-            <div class="info-overlay">
-              <h3>Manutenção de Cílios</h3>
-              <p>Preserve seu alongamento de cílios por mais tempo.</p>
-            </div>
-          </div>
-          <div class="service">
-            <img
-              src="imagens/trab4.jpeg"
-              alt="Brow Lamination para sobrancelhas mais volumosas e definidas"
-            />
-            <div class="info-overlay">
-              <h3>Brow Lamination</h3>
-              <p>Sobrancelhas mais volumosas e definidas com efeito natural.</p>
-            </div>
-          </div>
-          <div class="service">
-            <img
-              src="imagens/trab6.jpeg"
-              alt="Lash Lifting para cílios naturais alongados sem extensões"
-            />
-            <div class="info-overlay">
-              <h3>Lash Lifting</h3>
-              <p>Cílios naturais e alongados sem extensões.</p>
-            </div>
-          </div>
-          <div class="service">
-            <img
-              src="imagens/trab3.jpeg"
-              alt="Henna para sobrancelhas - Realce temporário e definição"
-            />
-            <div class="info-overlay">
-              <h3>Henna para Sobrancelhas</h3>
-              <p>Realce e defina suas sobrancelhas de forma temporária.</p>
-            </div>
-          </div>
+
+          <button class="carousel-btn next-btn" aria-label="Próximo">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
+
+        <div class="carousel-indicators"></div>
       </div>
     </section>
 
@@ -618,7 +913,7 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <span class="rating-text">5.0 • Baseado em 18 avaliações</span>
+            <span class="rating-text">5.0 • Baseado em 21 avaliações</span>
           </div>
         </div>
 
@@ -937,70 +1232,94 @@
     <section id="faq">
       <div class="container">
         <h2>Perguntas Frequentes</h2>
+        <p class="faq-subtitle">Tire suas dúvidas sobre nossos serviços</p>
         <div class="faq-list">
           <details>
             <summary>Quanto tempo dura uma extensão de cílios?</summary>
             <p>
-              Uma extensão de cílios bem feita pode durar de 15 a 20 dias,
-              sendo necessário fazer manutenção nesse período. 
+              Uma extensão de cílios bem feita pode durar de 3 a 4 semanas com
+              os cuidados adequados. Recomendamos fazer manutenção entre 15 a 20
+              dias para manter o visual sempre perfeito.
             </p>
           </details>
           <details>
             <summary>O design de sobrancelhas dói?</summary>
             <p>
-              O procedimento é praticamente indolor, utilizamos técnicas suaves
-              e produtos de qualidade.
+              O procedimento é praticamente indolor. Utilizamos técnicas suaves
+              e produtos de qualidade premium que minimizam qualquer
+              desconforto, proporcionando uma experiência relaxante.
             </p>
           </details>
           <details>
             <summary>Posso usar maquiagem após os procedimentos?</summary>
             <p>
-              Recomendamos aguardar 24 horas para cílios e 48 horas para
-              sobrancelhas antes de usar maquiagem.
+              Para extensão de cílios, evite maquiagem nos olhos por 24 horas.
+              Para sobrancelhas (design ou micropigmentação), aguarde 48 horas.
+              Isso garante melhor fixação e durabilidade.
+            </p>
+          </details>
+          <details>
+            <summary>Qual a diferença entre Volume Russo e Brasileiro?</summary>
+            <p>
+              O Volume Russo utiliza 2 a 6 fios ultrafinos por cílio natural,
+              criando efeito dramático. O Volume Brasileiro é fio a fio, com
+              resultado mais natural e elegante para o dia a dia.
+            </p>
+          </details>
+          <details>
+            <summary>Como é feita a escolha do formato de sobrancelha?</summary>
+            <p>
+              Fazemos análise facial completa considerando formato do rosto,
+              proporções e suas preferências pessoais. O resultado é
+              personalizado para valorizar sua beleza única.
             </p>
           </details>
         </div>
       </div>
     </section>
 
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <footer>
       <div class="footer-content">
-        <p>
-          &copy; 2025 Studio de Cílios e Sobrancelhas Anna Costa. Todos os
-          direitos reservados.
-        </p>
-        <a href="#home" class="back-to-top" aria-label="Voltar ao topo">
-          <i class="fas fa-arrow-up"></i>
-        </a>
+        <p>STUDIO ANNA COSTA 2026. TODOS OS DIREITOS RESERVADOS.</p>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scripts com defer para não bloquear renderização -->
+    <script src="script.js" defer></script>
+
+    <!-- Script do Botão Voltar ao Topo -->
+    <script>
+      // Mostrar/ocultar botão ao rolar
+      window.addEventListener('scroll', function() {
+        const backToTop = document.getElementById('backToTop');
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+
+      // Voltar ao topo suavemente ao clicar
+      document.getElementById('backToTop').addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
 
     <!-- Google Reviews Integration Script -->
-    <script>
+    <script defer>
       // Simulação da integração com Google Places API
-      // Substitua pela implementação real da API quando disponível
-      document.addEventListener("DOMContentLoaded", function () {
+      window.addEventListener("load", function () {
         console.log("Google Reviews Integration Ready");
         // Aqui seria implementada a chamada real da API do Google Places
         // para buscar avaliações dinâmicas
-
-        // Exemplo de como seria a implementação real:
-        /*
-        function loadGoogleReviews() {
-          const placeId = 'ChIJxxxxxxxxxxxxx'; // Seu Place ID do Google
-          
-          fetch(`/api/google-reviews/${placeId}`)
-            .then(response => response.json())
-            .then(data => {
-              updateReviewsDisplay(data.reviews);
-            })
-            .catch(error => {
-              console.error('Erro ao carregar avaliações:', error);
-            });
-        }
-        */
       });
     </script>
   </body>

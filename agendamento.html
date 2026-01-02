@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendar Horário | Studio Anna Costa</title>
+    <meta
+      name="description"
+      content="Agende seu horário online para extensão de cílios e design de sobrancelhas. Veja horários disponíveis em tempo real."
+    />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cinzel:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navegação -->
+    <nav>
+      <div class="logo">
+        <a href="index.html">Anna Costa</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#servicos">Serviços</a></li>
+        <li><a href="index.html#portfolio">Portfólio</a></li>
+        <li><a href="agendamento.html" class="active">Agendar</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="booking-hero">
+      <div class="container">
+        <h1>Consultar Disponibilidade</h1>
+        <p class="subtitle">Escolha o dia e horário que prefere e consulte a disponibilidade via WhatsApp</p>
+        <p class="subtitle" style="font-size: 1rem; opacity: 0.9; margin-top: 10px;">💬 Escolha sua preferência e pergunte se está disponível!</p>
+      </div>
+    </section>
+
+    <!-- Sistema de Agendamento -->
+    <section class="booking-section">
+      <div class="container">
+        <div class="booking-grid">
+          <!-- Seleção de Serviço -->
+          <div class="booking-card">
+            <h2><i class="fas fa-clipboard-list"></i> 1. Escolha o Serviço</h2>
+            <div class="service-options">
+              <label class="service-option">
+                <input type="radio" name="service" value="extensao-cilios" checked />
+                <div class="option-content">
+                  <i class="fas fa-eye"></i>
+                  <h3>Extensão de Cílios</h3>
+                  <p>2 a 3 horas</p>
+                </div>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="design-sobrancelhas" />
+                <div class="option-content">
+                  <i class="fas fa-spa"></i>
+                  <h3>Design de Sobrancelhas</h3>
+                  <p>30 a 45 minutos</p>
+                </div>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="lash-lifting" />
+                <div class="option-content">
+                  <i class="fas fa-magic"></i>
+                  <h3>Lash Lifting</h3>
+                  <p>1 hora</p>
+                </div>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="brow-lamination" />
+                <div class="option-content">
+                  <i class="fas fa-fire"></i>
+                  <h3>Brow Lamination</h3>
+                  <p>45 minutos</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Calendário -->
+          <div class="booking-card">
+            <h2><i class="fas fa-calendar-alt"></i> 2. Escolha a Data Desejada</h2>
+            <div id="calendar-container">
+              <div class="calendar-header">
+                <button id="prev-month" class="calendar-nav">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <h3 id="current-month"></h3>
+                <button id="next-month" class="calendar-nav">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <div id="calendar" class="calendar-grid"></div>
+            </div>
+          </div>
+
+          <!-- Horários Disponíveis -->
+          <!-- Removido: A cliente escolhe apenas a data e negocia o horário via WhatsApp -->
+
+          <!-- Resumo e Confirmação -->
+          <div class="booking-card booking-summary" id="booking-summary" style="display: none;">
+            <h2><i class="fas fa-check-circle"></i> Confirmar Solicitação</h2>
+            <div class="summary-content">
+              <div class="summary-item">
+                <strong>Serviço:</strong>
+                <span id="summary-service"></span>
+              </div>
+              <div class="summary-item">
+                <strong>Data:</strong>
+                <span id="summary-date"></span>
+              </div>
+            </div>
+            <button id="confirm-booking" class="btn-confirm-booking">
+              <i class="fab fa-whatsapp"></i>
+              Consultar Disponibilidade no WhatsApp
+            </button>
+            <p class="booking-note" style="background: rgba(184, 110, 121, 0.15); padding: 15px; border-radius: 8px; border-left: 4px solid #B86E79; margin-top: 20px;">
+              <i class="fas fa-exclamation-circle"></i>
+              <strong>Importante:</strong> O agendamento é confirmado apenas mediante o pagamento do sinal. Após a consulta via WhatsApp, você receberá as instruções para efetuar o pagamento.
+            </p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Studio Anna Costa</h3>
+          <p>
+            Especialista em cílios e sobrancelhas em Guarulhos há mais de 5
+            anos.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Serviços</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#servicos">Extensão de Cílios</a></li>
+            <li><a href="index.html#servicos">Design de Sobrancelhas</a></li>
+            <li><a href="index.html#servicos">Lash Lifting</a></li>
+            <li><a href="index.html#servicos">Brow Lamination</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Redes Sociais</h3>
+          <div class="social-links">
+            <a
+              href="https://instagram.com/annamrdesigner"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://wa.me/5511987382366"
+              target="_blank"
+              aria-label="WhatsApp"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+          <p class="footer-whatsapp">
+            <i class="fab fa-whatsapp"></i> Agende pelo WhatsApp
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Studio Anna Costa. Todos os direitos reservados.</p>
+        <a href="#" class="back-to-top" aria-label="Voltar ao topo">
+          <i class="fas fa-arrow-up"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script src="calendar.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

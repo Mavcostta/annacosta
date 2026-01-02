@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://annacostadesigner.com/sitemap.xml
+Sitemap: https://annamrdesigner.com.br/sitemap.xml
 
 # Bloquear acesso a arquivos sensíveis
 Disallow: /node_modules/
