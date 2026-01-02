@@ -2,7 +2,17 @@
 // CONFIGURAÇÃO DO GOOGLE CALENDAR API
 // ========================================
 // As credenciais estão no arquivo calendar-config.js (não versionado no Git)
-// Se o arquivo não existir, copie calendar-config.example.js e preencha com suas credenciais
+// Se não existir, define valores padrão
+
+// Verifica se CALENDAR_CONFIG foi carregado do arquivo externo
+if (typeof CALENDAR_CONFIG === 'undefined') {
+  console.warn('⚠️ calendar-config.js não encontrado. Usando configuração de demonstração.');
+  var CALENDAR_CONFIG = {
+    apiKey: "SUA_API_KEY_AQUI",
+    calendarId: "seu-email@gmail.com",
+    timeZone: "America/Sao_Paulo",
+  };
+}
 
 // Horário de funcionamento do studio (flexível - mostra todos os horários)
 const BUSINESS_HOURS = {
