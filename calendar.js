@@ -297,11 +297,18 @@ async function fetchMonthBusyDays(monthStart, monthEnd) {
     events.forEach((event) => {
       // Eventos de dia inteiro (all-day events) - marca o dia como ocupado
       if (event.start.date) {
-        const eventDate = new Date(event.start.date);
-        const dateStr = eventDate.toISOString().split("T")[0];
+        const startDate = new Date(event.start.date);
+        const endDate = event.end.date ? new Date(event.end.date) : new Date(event.start.date);
         const eventTitle = event.summary || "Ocupado";
-        busyDays.set(dateStr, eventTitle);
-        console.log(`🚫 Dia ocupado: ${dateStr} - ${eventTitle}`);
+        
+        // Marca todos os dias do intervalo (eventos de múltiplos dias)
+        let currentDate = new Date(startDate);
+        while (currentDate < endDate) {
+          const dateStr = currentDate.toISOString().split("T")[0];
+          busyDays.set(dateStr, eventTitle);
+          console.log(`🚫 Dia ocupado: ${dateStr} - ${eventTitle}`);
+          currentDate.setDate(currentDate.getDate() + 1);
+        }
       } else if (event.start.dateTime) {
         console.log(
           `⏰ Evento com horário: ${new Date(
