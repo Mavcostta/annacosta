@@ -1,15 +1,8 @@
 // ========================================
 // CONFIGURAÇÃO DO GOOGLE CALENDAR API
 // ========================================
-// ⚠️ AVISO DE SEGURANÇA: Esta chave API está visível no código
-// ⚠️ Para produção, mova para variáveis de ambiente ou backend
-
-// IMPORTANTE: Substitua estas variáveis com suas credenciais reais
-const CALENDAR_CONFIG = {
-  apiKey: "AIzaSyBmDL87XGnnp9cNaeQteKcDJPDLWSvEiS4", // ⚠️ CHAVE SENSÍVEL
-  calendarId: "ana0710mariavini@gmail.com", // Email do Google Calendar da Anna
-  timeZone: "America/Sao_Paulo",
-};
+// As credenciais estão no arquivo calendar-config.js (não versionado no Git)
+// Se o arquivo não existir, copie calendar-config.example.js e preencha com suas credenciais
 
 // Horário de funcionamento do studio (flexível - mostra todos os horários)
 const BUSINESS_HOURS = {
@@ -37,6 +30,7 @@ let selectedDate = null;
 let selectedTime = null;
 let selectedService = "extensao-cilios";
 let busySlots = [];
+let gapiLoaded = false;
 
 // ========================================
 // INICIALIZAÇÃO
@@ -71,11 +65,18 @@ function initGoogleClient() {
       ],
     })
     .then(() => {
-      console.log("Google Calendar API inicializada com sucesso!");
+      console.log("✅ Google Calendar API inicializada com sucesso!");
+      console.log("📧 Calendar ID:", CALENDAR_CONFIG.calendarId);
+      gapiLoaded = true;
+      // Recarregar calendário após inicialização
+      renderCalendar();
     })
     .catch((error) => {
-      console.error("Erro ao inicializar Google Calendar API:", error);
-      console.warn("Modo de demonstração ativado - usando horários simulados");
+      console.error("❌ Erro ao inicializar Google Calendar API:", error);
+      console.warn(
+        "⚠️ Modo de demonstração ativado - usando horários simulados"
+      );
+      gapiLoaded = false;
     });
 }
 
@@ -160,7 +161,7 @@ function initCalendar() {
   document.getElementById("next-month").addEventListener("click", nextMonth);
 }
 
-function renderCalendar() {
+async function renderCalendar() {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
@@ -193,7 +194,7 @@ function renderCalendar() {
       <div>Qui</div><div>Sex</div><div>Sáb</div>
     </div>
     <div class="calendar-days">
-      ${renderDays(firstDay, daysInMonth, year, month)}
+      ${await renderDays(firstDay, daysInMonth, year, month)}
     </div>
   `;
 
@@ -205,7 +206,7 @@ function renderCalendar() {
   });
 }
 
-function renderDays(firstDay, daysInMonth, year, month) {
+async function renderDays(firstDay, daysInMonth, year, month) {
   let html = "";
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -215,22 +216,103 @@ function renderDays(firstDay, daysInMonth, year, month) {
     html += '<div class="calendar-day empty"></div>';
   }
 
+  // Buscar eventos do mês inteiro de uma vez
+  const monthStart = new Date(year, month, 1);
+  const monthEnd = new Date(year, month + 1, 0);
+  const monthBusyDays = await fetchMonthBusyDays(monthStart, monthEnd);
+
   // Dias do mês
   for (let day = 1; day <= daysInMonth; day++) {
     const date = new Date(year, month, day);
     const dayOfWeek = date.getDay();
     const isPast = date < today;
     const isWorkingDay = WORKING_DAYS.includes(dayOfWeek);
-    const isDisabled = isPast || !isWorkingDay;
 
-    html += `<div class="calendar-day ${
-      isDisabled ? "disabled" : ""
-    }" data-date="${date.toISOString()}">
+    // Verificar se o dia está totalmente ocupado
+    const dateStr = date.toISOString().split("T")[0];
+    const isFullyBooked = monthBusyDays.has(dateStr);
+
+    const isDisabled = isPast || !isWorkingDay || isFullyBooked;
+
+    let dayClass = "calendar-day";
+    if (isDisabled) dayClass += " disabled";
+    if (isFullyBooked && !isPast) dayClass += " fully-booked";
+
+    html += `<div class="${dayClass}" data-date="${date.toISOString()}">
                ${day}
              </div>`;
   }
 
   return html;
+}
+
+// Função auxiliar para buscar dias ocupados do mês
+async function fetchMonthBusyDays(monthStart, monthEnd) {
+  const busyDays = new Set();
+
+  // Se a API não foi carregada ainda, retorna vazio
+  if (
+    !gapiLoaded ||
+    !window.gapi ||
+    !window.gapi.client ||
+    !window.gapi.client.calendar
+  ) {
+    console.warn("⚠️ API do Google Calendar ainda não está carregada");
+    return busyDays;
+  }
+
+  // Se não configurou a API, retorna vazio
+  if (
+    !CALENDAR_CONFIG.apiKey ||
+    CALENDAR_CONFIG.apiKey === "SUA_API_KEY_AQUI"
+  ) {
+    console.warn("⚠️ API Key não configurada");
+    return busyDays;
+  }
+
+  try {
+    console.log(
+      `📅 Buscando eventos entre ${monthStart.toLocaleDateString()} e ${monthEnd.toLocaleDateString()}`
+    );
+
+    const response = await gapi.client.calendar.events.list({
+      calendarId: CALENDAR_CONFIG.calendarId,
+      timeMin: monthStart.toISOString(),
+      timeMax: monthEnd.toISOString(),
+      singleEvents: true,
+      orderBy: "startTime",
+    });
+
+    const events = response.result.items || [];
+    console.log(`📋 Total de eventos encontrados: ${events.length}`);
+
+    events.forEach((event) => {
+      // Eventos de dia inteiro (all-day events) - marca o dia como ocupado
+      if (event.start.date) {
+        const eventDate = new Date(event.start.date);
+        const dateStr = eventDate.toISOString().split("T")[0];
+        busyDays.add(dateStr);
+        console.log(
+          `🚫 Dia ocupado: ${dateStr} - ${event.summary || "Sem título"}`
+        );
+      } else if (event.start.dateTime) {
+        console.log(
+          `⏰ Evento com horário: ${new Date(
+            event.start.dateTime
+          ).toLocaleString()} - ${event.summary || "Sem título"}`
+        );
+      }
+    });
+
+    console.log(`📊 Total de dias completamente ocupados: ${busyDays.size}`);
+    return busyDays;
+  } catch (error) {
+    console.error("❌ Erro ao buscar eventos do mês:", error);
+    if (error.result && error.result.error) {
+      console.error("Detalhes do erro:", error.result.error);
+    }
+    return busyDays;
+  }
 }
 
 function prevMonth() {
@@ -254,6 +336,23 @@ async function selectDate(dayElement) {
   dayElement.classList.add("selected");
 
   selectedDate = new Date(dayElement.dataset.date);
+
+  // Buscar horários ocupados do Google Calendar
+  busySlots = await fetchBusySlots(selectedDate);
+
+  // Verificar se o dia está completamente ocupado
+  const dayFullyBooked = busySlots.some((slot) => slot.allDay);
+
+  if (dayFullyBooked) {
+    // Dia completamente ocupado
+    alert(
+      "⚠️ Este dia está totalmente ocupado. Por favor, escolha outra data."
+    );
+    dayElement.classList.remove("selected");
+    dayElement.classList.add("disabled");
+    selectedDate = null;
+    return;
+  }
 
   // Mostrar resumo imediatamente (sem seleção de horário)
   updateSummary();

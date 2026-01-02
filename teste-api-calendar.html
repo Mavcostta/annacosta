@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teste - Verificação da API do Google Calendar</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .status-box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .success {
+        color: green;
+      }
+      .error {
+        color: red;
+      }
+      .warning {
+        color: orange;
+      }
+      #log {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        max-height: 400px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+      button {
+        background: #b86e79;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background: #a05d68;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🧪 Teste de Integração - Google Calendar API</h1>
+
+    <div class="status-box">
+      <h2>Status da Conexão</h2>
+      <p id="status">⏳ Carregando...</p>
+      <p id="calendar-id"></p>
+    </div>
+
+    <div class="status-box">
+      <h2>Ações</h2>
+      <button onclick="testFetchEvents()">
+        🔄 Buscar Eventos do Mês Atual
+      </button>
+      <button onclick="testNextMonth()">➡️ Buscar Próximo Mês</button>
+      <button onclick="clearLog()">🗑️ Limpar Log</button>
+    </div>
+
+    <div class="status-box">
+      <h2>Log de Eventos</h2>
+      <div id="log"></div>
+    </div>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="calendar-config.js"></script>
+    <script>
+      // CALENDAR_CONFIG é carregado de calendar-config.js
+
+      let logElement = document.getElementById("log");
+
+      function addLog(message, type = "info") {
+        const timestamp = new Date().toLocaleTimeString();
+        const emoji =
+          type === "success"
+            ? "✅"
+            : type === "error"
+            ? "❌"
+            : type === "warning"
+            ? "⚠️"
+            : "📝";
+        logElement.textContent += `[${timestamp}] ${emoji} ${message}\n`;
+        logElement.scrollTop = logElement.scrollHeight;
+      }
+
+      function clearLog() {
+        logElement.textContent = "";
+      }
+
+      // Carregar API
+      function loadGoogleAPI() {
+        addLog("Carregando Google API...");
+        gapi.load("client", initGoogleClient);
+      }
+
+      function initGoogleClient() {
+        addLog("Inicializando Google Calendar API...");
+        gapi.client
+          .init({
+            apiKey: CALENDAR_CONFIG.apiKey,
+            discoveryDocs: [
+              "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
+            ],
+          })
+          .then(() => {
+            addLog("Google Calendar API inicializada com sucesso!", "success");
+            document.getElementById("status").innerHTML =
+              '<span class="success">✅ Conectado com sucesso!</span>';
+            document.getElementById(
+              "calendar-id"
+            ).innerHTML = `📧 Calendar ID: <strong>${CALENDAR_CONFIG.calendarId}</strong>`;
+          })
+          .catch((error) => {
+            addLog(
+              `Erro ao inicializar: ${error.message || JSON.stringify(error)}`,
+              "error"
+            );
+            document.getElementById("status").innerHTML =
+              '<span class="error">❌ Erro na conexão!</span>';
+          });
+      }
+
+      async function testFetchEvents() {
+        const now = new Date();
+        const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+        const monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+
+        await fetchEvents(monthStart, monthEnd);
+      }
+
+      async function testNextMonth() {
+        const now = new Date();
+        const monthStart = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+        const monthEnd = new Date(now.getFullYear(), now.getMonth() + 2, 0);
+
+        await fetchEvents(monthStart, monthEnd);
+      }
+
+      async function fetchEvents(startDate, endDate) {
+        addLog(
+          `\n📅 Buscando eventos entre ${startDate.toLocaleDateString()} e ${endDate.toLocaleDateString()}`
+        );
+
+        try {
+          const response = await gapi.client.calendar.events.list({
+            calendarId: CALENDAR_CONFIG.calendarId,
+            timeMin: startDate.toISOString(),
+            timeMax: endDate.toISOString(),
+            singleEvents: true,
+            orderBy: "startTime",
+          });
+
+          const events = response.result.items || [];
+          addLog(
+            `📋 Total de eventos encontrados: ${events.length}`,
+            "success"
+          );
+
+          if (events.length === 0) {
+            addLog("ℹ️ Nenhum evento encontrado neste período", "warning");
+            return;
+          }
+
+          events.forEach((event, index) => {
+            if (event.start.date) {
+              // Evento de dia inteiro
+              addLog(
+                `${index + 1}. 🚫 DIA INTEIRO: ${event.start.date} - "${
+                  event.summary || "Sem título"
+                }"`,
+                "warning"
+              );
+            } else if (event.start.dateTime) {
+              // Evento com horário
+              const eventDate = new Date(event.start.dateTime);
+              addLog(
+                `${
+                  index + 1
+                }. ⏰ COM HORÁRIO: ${eventDate.toLocaleString()} - "${
+                  event.summary || "Sem título"
+                }"`
+              );
+            }
+          });
+
+          // Contar dias ocupados
+          const busyDays = new Set();
+          events.forEach((event) => {
+            if (event.start.date) {
+              busyDays.add(event.start.date);
+            }
+          });
+
+          addLog(
+            `\n📊 Total de dias completamente ocupados: ${busyDays.size}`,
+            "success"
+          );
+          if (busyDays.size > 0) {
+            addLog(`Dias: ${Array.from(busyDays).join(", ")}`);
+          }
+        } catch (error) {
+          addLog(
+            `❌ Erro ao buscar eventos: ${
+              error.message || JSON.stringify(error)
+            }`,
+            "error"
+          );
+          if (error.result && error.result.error) {
+            addLog(
+              `Detalhes: ${JSON.stringify(error.result.error, null, 2)}`,
+              "error"
+            );
+          }
+        }
+      }
+
+      // Iniciar ao carregar
+      window.onload = () => {
+        loadGoogleAPI();
+      };
+    </script>
+  </body>
+</html>

@@ -4374,6 +4374,20 @@ footer::before {
   background: transparent;
 }
 
+.calendar-day.fully-booked {
+  background: rgba(255, 82, 82, 0.15);
+  border: 2px solid rgba(255, 82, 82, 0.3);
+  position: relative;
+}
+
+.calendar-day.fully-booked::after {
+  content: "🚫";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 10px;
+}
+
 .calendar-day.empty {
   background: transparent;
   cursor: default;
