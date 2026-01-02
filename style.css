@@ -507,14 +507,15 @@ section {
 
   .portfolio-item {
     min-width: 100%;
+    height: 350px;
   }
 
-  .portfolio-item img,
-  .portfolio-item picture img {
-    height: 300px;
-    object-fit: contain;
+  .portfolio-item picture,
+  .portfolio-item picture img,
+  .portfolio-item img {
+    height: 100%;
+    object-fit: cover;
     object-position: center;
-    background: var(--bg-secondary);
   }
 
   .carousel-btn {
