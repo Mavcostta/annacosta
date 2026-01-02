@@ -4371,13 +4371,17 @@ footer::before {
 .calendar-day.disabled {
   opacity: 0.3;
   cursor: not-allowed;
+}
+
+.calendar-day.disabled:not(.fully-booked) {
   background: transparent;
 }
 
 .calendar-day.fully-booked {
-  background: rgba(255, 82, 82, 0.15);
-  border: 2px solid rgba(255, 82, 82, 0.3);
+  background: rgba(255, 82, 82, 0.15) !important;
+  border: 2px solid rgba(255, 82, 82, 0.3) !important;
   position: relative;
+  opacity: 0.8 !important;
 }
 
 .calendar-day.fully-booked::after {
@@ -4385,7 +4389,7 @@ footer::before {
   position: absolute;
   top: 2px;
   right: 2px;
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .calendar-day.empty {
