@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Debug Calendário</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .calendar-day {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 50px;
+        }
+        .calendar-day.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .calendar-day.disabled:not(.fully-booked) {
+            background: transparent;
+        }
+        .calendar-day.fully-booked {
+            background: rgba(255, 82, 82, 0.15) !important;
+            border: 2px solid rgba(255, 82, 82, 0.3) !important;
+            position: relative;
+            opacity: 0.8 !important;
+        }
+        .calendar-day.fully-booked::after {
+            content: "🚫";
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste de Classes CSS</h1>
+    
+    <div>
+        <h3>Dia Normal:</h3>
+        <div class="calendar-day">5</div>
+    </div>
+    
+    <div>
+        <h3>Dia Ocupado (com fully-booked):</h3>
+        <div class="calendar-day disabled fully-booked" title="Ocupado: ferias">1</div>
+        <div class="calendar-day disabled fully-booked" title="Ocupado: teste">3</div>
+    </div>
+    
+    <div>
+        <h3>Dia Passado (disabled sem fully-booked):</h3>
+        <div class="calendar-day disabled">28</div>
+    </div>
+
+    <hr>
+    
+    <h2>Inspecione os elementos acima e veja os estilos aplicados</h2>
+    <p>Os dias 1 e 3 devem ter fundo vermelho e emoji 🚫</p>
+</body>
+</html>

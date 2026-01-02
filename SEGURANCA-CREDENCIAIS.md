@@ -7,11 +7,13 @@ Este projeto usa a API do Google Calendar que requer credenciais sensíveis. Par
 ## 📋 Como Configurar
 
 ### 1. Copiar o arquivo de exemplo
+
 ```bash
 cp calendar-config.example.js calendar-config.js
 ```
 
 ### 2. Editar o arquivo `calendar-config.js`
+
 Abra o arquivo e preencha com suas credenciais:
 
 ```javascript
@@ -25,6 +27,7 @@ const CALENDAR_CONFIG = {
 ### 3. Obter as credenciais
 
 Siga as instruções em [CONFIGURACAO-CALENDARIO.md](CONFIGURACAO-CALENDARIO.md) para:
+
 - Criar um projeto no Google Cloud
 - Ativar a API do Google Calendar
 - Gerar uma API Key

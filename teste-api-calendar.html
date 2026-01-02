@@ -78,11 +78,14 @@
     </div>
 
     <script src="https://apis.google.com/js/api.js"></script>
-    <script src="calendar-config.js" onerror="console.warn('Usando configuração de exemplo')"></script>
+    <script
+      src="calendar-config.js"
+      onerror="console.warn('Usando configuração de exemplo')"
+    ></script>
     <script>
       // CALENDAR_CONFIG é carregado de calendar-config.js
       // Se não existir, define um padrão
-      if (typeof CALENDAR_CONFIG === 'undefined') {
+      if (typeof CALENDAR_CONFIG === "undefined") {
         var CALENDAR_CONFIG = {
           apiKey: "SUA_API_KEY_AQUI",
           calendarId: "seu-email@gmail.com",

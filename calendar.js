@@ -239,7 +239,12 @@ async function renderDays(firstDay, daysInMonth, year, month) {
     if (isDisabled) dayClass += " disabled";
     if (isFullyBooked && !isPast) dayClass += " fully-booked";
 
-    const title = isFullyBooked ? `Ocupado: ${eventInfo}` : '';
+    const title = isFullyBooked ? `Ocupado: ${eventInfo}` : "";
+
+    // Debug: logar dias ocupados
+    if (isFullyBooked) {
+      console.log(`🔍 Dia ${day}: classes="${dayClass}", isPast=${isPast}, eventInfo=${eventInfo}`);
+    }
 
     html += `<div class="${dayClass}" data-date="${date.toISOString()}" title="${title}">
                ${day}
@@ -296,9 +301,7 @@ async function fetchMonthBusyDays(monthStart, monthEnd) {
         const dateStr = eventDate.toISOString().split("T")[0];
         const eventTitle = event.summary || "Ocupado";
         busyDays.set(dateStr, eventTitle);
-        console.log(
-          `🚫 Dia ocupado: ${dateStr} - ${eventTitle}`
-        );
+        console.log(`🚫 Dia ocupado: ${dateStr} - ${eventTitle}`);
       } else if (event.start.dateTime) {
         console.log(
           `⏰ Evento com horário: ${new Date(
