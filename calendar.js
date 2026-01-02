@@ -219,7 +219,7 @@ async function renderDays(firstDay, daysInMonth, year, month) {
   // Buscar eventos do mês inteiro de uma vez
   const monthStart = new Date(year, month, 1);
   const monthEnd = new Date(year, month + 1, 0);
-  const monthBusyDays = await fetchMonthBusyDays(monthStart, monthEnd);
+  const monthBusyData = await fetchMonthBusyDays(monthStart, monthEnd);
 
   // Dias do mês
   for (let day = 1; day <= daysInMonth; day++) {
@@ -230,7 +230,8 @@ async function renderDays(firstDay, daysInMonth, year, month) {
 
     // Verificar se o dia está totalmente ocupado
     const dateStr = date.toISOString().split("T")[0];
-    const isFullyBooked = monthBusyDays.has(dateStr);
+    const eventInfo = monthBusyData.get(dateStr);
+    const isFullyBooked = eventInfo !== undefined;
 
     const isDisabled = isPast || !isWorkingDay || isFullyBooked;
 
@@ -238,7 +239,9 @@ async function renderDays(firstDay, daysInMonth, year, month) {
     if (isDisabled) dayClass += " disabled";
     if (isFullyBooked && !isPast) dayClass += " fully-booked";
 
-    html += `<div class="${dayClass}" data-date="${date.toISOString()}">
+    const title = isFullyBooked ? `Ocupado: ${eventInfo}` : '';
+
+    html += `<div class="${dayClass}" data-date="${date.toISOString()}" title="${title}">
                ${day}
              </div>`;
   }
@@ -248,7 +251,7 @@ async function renderDays(firstDay, daysInMonth, year, month) {
 
 // Função auxiliar para buscar dias ocupados do mês
 async function fetchMonthBusyDays(monthStart, monthEnd) {
-  const busyDays = new Set();
+  const busyDays = new Map(); // Mudado para Map para guardar título do evento
 
   // Se a API não foi carregada ainda, retorna vazio
   if (
@@ -291,9 +294,10 @@ async function fetchMonthBusyDays(monthStart, monthEnd) {
       if (event.start.date) {
         const eventDate = new Date(event.start.date);
         const dateStr = eventDate.toISOString().split("T")[0];
-        busyDays.add(dateStr);
+        const eventTitle = event.summary || "Ocupado";
+        busyDays.set(dateStr, eventTitle);
         console.log(
-          `🚫 Dia ocupado: ${dateStr} - ${event.summary || "Sem título"}`
+          `🚫 Dia ocupado: ${dateStr} - ${eventTitle}`
         );
       } else if (event.start.dateTime) {
         console.log(
