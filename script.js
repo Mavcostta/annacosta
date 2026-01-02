@@ -48,15 +48,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevButton = document.querySelector(".prev");
   const nextButton = document.querySelector(".next");
 
-  prevButton.addEventListener("click", () => {
-    moveSlide(-1);
-    resetAutoSlide();
-  });
+  if (prevButton && nextButton) {
+    prevButton.addEventListener("click", () => {
+      moveSlide(-1);
+      resetAutoSlide();
+    });
 
-  nextButton.addEventListener("click", () => {
-    moveSlide(1);
-    resetAutoSlide();
-  });
+    nextButton.addEventListener("click", () => {
+      moveSlide(1);
+      resetAutoSlide();
+    });
+  }
 
   updateCarousel();
   startAutoSlide();
@@ -78,10 +80,12 @@ function resetAutoSlide() {
 
 document.addEventListener("DOMContentLoaded", function () {
   let header = document.querySelector("header");
-  let nome = document.createElement("h1");
-  nome.classList.add("nome-header");
-  nome.textContent = "ANNA COSTA";
-  header.appendChild(nome);
+  if (header) {
+    let nome = document.createElement("h1");
+    nome.classList.add("nome-header");
+    nome.textContent = "ANNA COSTA";
+    header.appendChild(nome);
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -162,7 +162,15 @@
       </div>
     </footer>
 
-    <script src="calendar-config.js" onerror="console.warn('calendar-config.js não encontrado')"></script>
+    <script>
+      // Define configuração padrão caso calendar-config.js não carregue
+      window.CALENDAR_CONFIG = window.CALENDAR_CONFIG || {
+        apiKey: "SUA_API_KEY_AQUI",
+        calendarId: "seu-email@gmail.com",
+        timeZone: "America/Sao_Paulo",
+      };
+    </script>
+    <script src="calendar-config.js" onerror="console.warn('⚠️ calendar-config.js não encontrado - usando modo demo')"></script>
     <script src="calendar.js"></script>
     <script src="script.js"></script>
   </body>
