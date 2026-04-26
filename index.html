@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <!-- Google Analytics 4 -->
@@ -78,6 +78,22 @@
       Brasileiro, Lash Lifting
     </title>
 
+    <!-- Preload de fontes críticas (Poppins e Playfair) - Accelera rendering -->
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrFJDUc1ZCBM5EIVs9aBhJQu8E.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/playfairdisplay/v28/nuFvD-vgj4NtUtmvaoeKBYwqVHSBMg.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <!-- DNS Prefetch para domínios externos - Acelera conexões -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
@@ -86,9 +102,9 @@
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://wa.me" />
 
-    <!-- Preload CSS crítico -->
-    <link rel="preload" href="style.css?v=1.1" as="style" />
-    <link rel="stylesheet" href="style.css?v=1.1" />
+    <!-- Preload CSS crítico (minificado) -->
+    <link rel="preload" href="style.min.css?v=1.1" as="style" />
+    <link rel="stylesheet" href="style.min.css?v=1.1" />
 
     <!-- Preconnect para recursos críticos (prioridade alta) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -100,7 +116,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap"
       rel="stylesheet"
       media="print"
-      onload="this.media='all'"
+      onload="this.media = 'all'"
     />
     <noscript>
       <link
@@ -114,7 +130,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
       media="print"
-      onload="this.media='all'"
+      onload="this.media = 'all'"
     />
 
     <!-- Favicon - Múltiplos formatos para compatibilidade -->
@@ -305,6 +321,30 @@
       <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Google Reviews Floating Button (Melhoria #8) -->
+    <div class="google-reviews-floater">
+      <a
+        href="https://www.google.com/maps/place/Studio+Anna+Costa/@-23.4009213,-46.4515011,15z/data=!4m8!3m7!1s0x94ce8bd863e8af37:0x891afd6c29a1a211!8m2!3d-23.4009216!4d-46.4412014!9m1!1b1!16s%2Fg%2F11mcfpf8_r?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D"
+        target="_blank"
+        aria-label="Deixar avaliação no Google"
+        onclick="trackEvent('CTA', 'click', 'Google Reviews')"
+      >
+        <i class="fab fa-google"></i>
+        <div class="google-reviews-tooltip">⭐ Avalie-nos!</div>
+      </a>
+    </div>
+
+    <!-- Sticky CTA Mobile Button (Melhoria #6) -->
+    <div class="sticky-cta-mobile">
+      <a
+        href="https://wa.me/5511987382366?text=Oi%20Anna,%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!"
+        onclick="trackEvent('CTA', 'click', 'Sticky Mobile CTA')"
+      >
+        <i class="fas fa-calendar-check"></i>
+        <span>Agendar Agora</span>
+      </a>
+    </div>
+
     <nav>
       <div
         class="menu-toggle"
@@ -321,6 +361,7 @@
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#meu-studio">Meu Studio</a></li>
         <li><a href="#servicos">Serviços</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="#feedback">Feedback</a></li>
         <li><a href="agendamento.html">Agendamento</a></li>
         <li><a href="#contato">Contato</a></li>
@@ -428,7 +469,7 @@
                   beleza única de cada mulher."
                 </p>
                 <p>
-                  Com mais de <strong>5 anos de experiência</strong> no mercado
+                  Com mais de <strong>6 anos de experiência</strong> no mercado
                   da beleza, me especializei em técnicas que combinam
                   <strong>arte e ciência</strong> para resultados naturais e
                   duradouros.
@@ -477,7 +518,7 @@
                     <i class="fas fa-calendar-alt"></i>
                   </div>
                   <div class="estatistica-content">
-                    <div class="numero">5+</div>
+                    <div class="numero">6+</div>
                     <div class="label">Anos de Experiência</div>
                   </div>
                 </div>
@@ -487,7 +528,7 @@
                     <i class="fas fa-users"></i>
                   </div>
                   <div class="estatistica-content">
-                    <div class="numero">2500+</div>
+                    <div class="numero">3000+</div>
                     <div class="label">Clientes Satisfeitas</div>
                   </div>
                 </div>
@@ -518,7 +559,7 @@
               <!-- Link para Portfólio -->
               <div class="portfolio-link-section">
                 <a
-                  href="portfolio-anna-costa.pdf"
+                  href="portifolio-novo.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="portfolio-link-btn"
@@ -912,7 +953,7 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <span class="rating-text">5.0 • Baseado em 21 avaliações</span>
+            <span class="rating-text">5.0 • Baseado em 23 avaliações</span>
           </div>
         </div>
 
@@ -1282,13 +1323,126 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- NOVO FOOTER MODERNO E PROFISSIONAL -->
     <footer>
-      <div class="footer-content">
-        <p>STUDIO ANNA COSTA 2026. TODOS OS DIREITOS RESERVADOS.</p>
+      <div class="footer-container">
+        <!-- Section 1: Sobre -->
+        <div class="footer-section">
+          <div class="footer-logo">
+            <h3>Anna Costa</h3>
+            <p class="footer-tagline">Designer de Cílios & Sobrancelhas</p>
+          </div>
+          <p class="footer-desc">
+            Especialista em extensão de cílios e design de sobrancelhas com 6+
+            anos de experiência. Qualidade, profissionalismo e beleza em cada
+            procedimento.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://www.instagram.com/annamrdesigner/"
+              target="_blank"
+              aria-label="Instagram"
+              title="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://wa.me/5511987382366"
+              target="_blank"
+              aria-label="WhatsApp"
+              title="WhatsApp"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a
+              href="https://www.tiktok.com/@annacdesigner"
+              target="_blank"
+              aria-label="TikTok"
+              title="TikTok"
+            >
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a
+              href="https://www.google.com/maps/place/Studio+Anna+Costa"
+              target="_blank"
+              aria-label="Google Maps"
+              title="Localização"
+            >
+              <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Section 2: Serviços -->
+        <div class="footer-section">
+          <h4>Serviços</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#servicos">Extensão de Cílios</a></li>
+            <li><a href="index.html#servicos">Design de Sobrancelhas</a></li>
+            <li><a href="index.html#servicos">Lash Lifting</a></li>
+            <li><a href="index.html#servicos">Brow Lamination</a></li>
+            <li><a href="index.html#servicos">Henna & Micropigmentação</a></li>
+          </ul>
+        </div>
+
+        <!-- Section 3: Links Úteis -->
+        <div class="footer-section">
+          <h4>Links Úteis</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#sobre">Sobre Mim</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#faq">Perguntas Frequentes</a></li>
+            <li><a href="index.html#feedback">Avaliações</a></li>
+            <li><a href="agendamento.html">Agendamento</a></li>
+          </ul>
+        </div>
+
+        <!-- Section 4: Contato -->
+        <div class="footer-section">
+          <h4>Contato & Localização</h4>
+          <div class="footer-contact">
+            <p>
+              <i class="fas fa-phone"></i>
+              <a href="https://wa.me/5511987382366">(11) 98738-2366</a>
+            </p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i>
+              Guarulhos, SP
+            </p>
+            <p>
+              <i class="fas fa-star"></i>
+              <span class="rating">5.0 ★ • 23 avaliações</span>
+            </p>
+          </div>
+          <a
+            href="https://wa.me/5511987382366?text=Oi%20Anna!%20Gostaria%20de%20agendar!"
+            class="footer-cta"
+          >
+            Agende Agora
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p class="copyright">
+            © 2026 Studio Anna Costa. Todos os direitos reservados.
+          </p>
+          <div class="footer-legal">
+            <a href="index.html">Home</a> •
+            <a href="index.html#sobre">Sobre</a> •
+            <a href="index.html#contato">Contato</a>
+          </div>
+        </div>
       </div>
     </footer>
 
     <!-- Scripts com defer para não bloquear renderização -->
+    <!-- Otimização de Performance -->
+    <script src="optimize-images.js" defer></script>
+    <script src="optimize-dimensions.js" defer></script>
     <script src="script.js" defer></script>
 
     <!-- Script do Botão Voltar ao Topo -->
