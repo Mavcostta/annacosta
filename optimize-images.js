@@ -36,12 +36,37 @@
 
       // Se é img tag com src, substitui
       if (imgElement.tagName === "IMG") {
-        imgElement.srcset = webpSrc + " 1x";
-        // Adiciona fallback
-        const source = document.createElement("source");
-        source.srcset = webpSrc;
-        source.type = "image/webp";
-        imgElement.parentElement.insertBefore(source, imgElement);
+        // Evita duplicar quando já está dentro de um <picture>
+        const parent = imgElement.parentElement;
+        // Testa se o .webp existe antes de alterar o DOM (preload rápido)
+        const testImg = new Image();
+        testImg.onload = function () {
+          // Se já está dentro de <picture>, só adiciona <source>
+          if (parent && parent.tagName === "PICTURE") {
+            if (parent.querySelector('source[type="image/webp"]')) return;
+            const source = document.createElement("source");
+            source.srcset = webpSrc;
+            source.type = "image/webp";
+            parent.insertBefore(source, imgElement);
+            return;
+          }
+
+          // Envolve o <img> em um <picture> e insere <source> corretamente
+          if (parent) {
+            const picture = document.createElement("picture");
+            const source = document.createElement("source");
+            source.srcset = webpSrc;
+            source.type = "image/webp";
+            parent.insertBefore(picture, imgElement);
+            picture.appendChild(source);
+            picture.appendChild(imgElement);
+          }
+        };
+
+        testImg.onerror = function () {
+          // .webp não existe ou não carregou — não modifica o DOM
+        };
+        testImg.src = webpSrc;
       }
     }
   }

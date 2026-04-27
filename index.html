@@ -1,231 +1,57 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-    <!-- Google Analytics 4 -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-XXXXXXXXXX", {
-        send_page_view: true,
-        anonymize_ip: true,
-      });
-
-      // Event tracking helper
-      window.trackEvent = function (category, action, label) {
-        gtag("event", action, {
-          event_category: category,
-          event_label: label,
-        });
-      };
-    </script>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Realce seu olhar com design de sobrancelhas e extensão de cílios em Guarulhos. Atendimento profissional, resultados incríveis e confiança com Anna Costa Designer."
+      content="Realce seu olhar com design de sobrancelhas e extensão de cílios em Guarulhos. Atendimento profissional, resultados incríveis com Anna Costa Designer."
     />
-    <meta
-      name="keywords"
-      content="cílios, sobrancelhas, extensão de cílios,
-    design de sobrancelhas, Guarulhos, Anna Costa, lash lifting, brow
-    lamination, henna para sobrancelhas, manutenção de cílios"
-    />
-    <meta name="author" content="Anna Costa" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph para compartilhamento -->
-    <meta
-      property="og:title"
-      content="Anna Costa Designer - Cílios e Sobrancelhas em Guarulhos | Design Profissional"
-    />
-    <meta
-      property="og:description"
-      content="Especialista em extensão de cílios e design de sobrancelhas em Guarulhos. Volume Brasileiro, Lash Lifting, Brow Lamination e Designer com Henna. 5 estrelas no Google!"
-    />
-    <meta
-      property="og:image"
-      content="https://annamrdesigner.com.br/imagens/flutuante.jpeg"
-    />
-    <meta property="og:url" content="https://annamrdesigner.com.br/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="pt_BR" />
+    <title>Anna Costa Designer - Cílios e Sobrancelhas em Guarulhos</title>
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Anna Costa Designer - Cílios e Sobrancelhas em Guarulhos"
-    />
-    <meta
-      name="twitter:description"
-      content="Especialista em extensão de cílios e design de sobrancelhas em Guarulhos. Volume Brasileiro, Lash Lifting, Brow Lamination. Avaliação 5.0 ⭐"
-    />
-    <meta
-      name="twitter:image"
-      content="https://annamrdesigner.com.br/imagens/flutuante.jpeg"
-    />
-
-    <title>
-      Anna Costa Designer - Cílios e Sobrancelhas em Guarulhos | Volume
-      Brasileiro, Lash Lifting
-    </title>
-
-    <!-- Preload de fontes críticas (Poppins e Playfair) - Accelera rendering -->
-    <link
-      rel="preload"
-      href="https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrFJDUc1ZCBM5EIVs9aBhJQu8E.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="https://fonts.gstatic.com/s/playfairdisplay/v28/nuFvD-vgj4NtUtmvaoeKBYwqVHSBMg.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-
-    <!-- DNS Prefetch para domínios externos - Acelera conexões -->
+    <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-    <link rel="dns-prefetch" href="https://www.google.com" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://wa.me" />
 
-    <!-- Preload CSS crítico (minificado) -->
-    <link rel="preload" href="style.min.css?v=1.1" as="style" />
+    <!-- CSS crítico -->
     <link rel="stylesheet" href="style.min.css?v=1.1" />
-
-    <!-- Preconnect para recursos críticos (prioridade alta) -->
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-
-    <!-- Fontes otimizadas (consolidadas em uma única requisição) -->
+    <!-- Fontes -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-      media="print"
-      onload="this.media = 'all'"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
-
-    <!-- Font Awesome com defer -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      media="print"
-      onload="this.media = 'all'"
     />
 
-    <!-- Favicon - Múltiplos formatos para compatibilidade -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/imagens/favicon.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="/imagens/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/imagens/flutuante.jpeg"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/imagens/flutuante.jpeg"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/imagens/flutuante.jpeg"
-    />
-
-    <!-- Schema Markup for SEO -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Anna Costa Designer",
-        "description": "Especialista em extensão de cílios e design de sobrancelhas em Guarulhos. Volume Brasileiro, Lash Lifting, Brow Lamination e Designer com Henna.",
         "url": "https://annamrdesigner.com.br",
         "telephone": "+5511987382366",
-        "priceRange": "$$",
-        "image": "https://annamrdesigner.com.br/imagens/flutuante.jpeg",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Guarulhos",
           "addressRegion": "SP",
           "addressCountry": "BR"
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "-23.4628",
-          "longitude": "-46.5333"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Serviços de Beleza",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Extensão de Cílios - Volume Brasileiro",
-                "description": "Extensão de cílios com técnicas profissionais e produtos de alta qualidade. Volume Brasileiro, 6D e efeito Fox."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Design de Sobrancelhas",
-                "description": "Design personalizado de sobrancelhas com henna, micropigmentação e técnicas avançadas."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Lash Lifting",
-                "description": "Tratamento para curvatura e alongamento dos cílios naturais com resultados duradouros."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Brow Lamination",
-                "description": "Tratamento para definição, volume e alinhamento das sobrancelhas com efeito profissional."
-              }
-            }
-          ]
-        },
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
-          "reviewCount": "21",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "sameAs": ["https://www.instagram.com/annamrdesigner/"]
+          "reviewCount": "21"
+        }
       }
     </script>
-
-    <!-- Schema FAQ -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -236,7 +62,7 @@
             "name": "Quanto tempo dura uma extensão de cílios?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Uma extensão de cílios bem feita pode durar de 3 a 4 semanas, dependendo dos cuidados diários."
+              "text": "3 a 4 semanas com cuidados diários."
             }
           },
           {
@@ -244,71 +70,16 @@
             "name": "O design de sobrancelhas dói?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "O procedimento é praticamente indolor, utilizamos técnicas suaves e produtos de qualidade."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Posso usar maquiagem após os procedimentos?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Recomendamos aguardar 24 horas para cílios e 48 horas para sobrancelhas antes de usar maquiagem."
+              "text": "Não, utilizamos técnicas suaves."
             }
           }
         ]
       }
     </script>
-    <link rel="sitemap" type="application/xml" href="sitemap.xml" />
 
-    <!-- PWA Manifest and Service Worker -->
+    <!-- PWA -->
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#d26ca4" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Anna Costa" />
-    <link rel="apple-touch-icon" href="imagens/flutuante.jpeg" />
-
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Quais serviços vocês oferecem?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Oferecemos extensão de cílios, design de sobrancelhas, lash lifting, brow lamination e micropigmentação. Todos os serviços são realizados com produtos de alta qualidade e técnicas profissionais."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Como posso agendar um horário?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Você pode agendar seu horário através do WhatsApp (11) 99999-9999 ou Instagram @annamrdesigner. Também aceitamos agendamentos presenciais no salão."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Qual é a duração média dos serviços?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A extensão de cílios dura aproximadamente 2 horas, o design de sobrancelhas cerca de 1 hora, lash lifting 1h30min e brow lamination 1h30min."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Vocês trabalham com produtos hipoalergênicos?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sim, utilizamos produtos de alta qualidade, testados dermatologicamente e hipoalergênicos. Sempre realizamos teste de sensibilidade antes dos procedimentos."
-            }
-          }
-        ]
-      }
-    </script>
   </head>
   <body>
     <a
@@ -417,32 +188,20 @@
         <div class="imagem-hero">
           <div class="hero-image-carousel">
             <img
-              src="imagens/flutuante.jpeg"
-              alt="Anna Costa - Especialista em extensão de cílios e design de sobrancelhas em Guarulhos"
+              src="imagens/3yjyhe.jpg"
+              alt="Anna Costa - Nova técnica"
               class="hero-image active"
               fetchpriority="high"
             />
             <img
-              src="imagens/anna (1).jpeg"
-              alt="Anna Costa - Profissional de cílios e sobrancelhas"
+              src="imagens/k3aeor.jpg"
+              alt="Anna Costa - Nova técnica"
               class="hero-image"
               loading="lazy"
             />
             <img
-              src="imagens/anna (2).jpeg"
-              alt="Anna Costa - Designer de sobrancelhas"
-              class="hero-image"
-              loading="lazy"
-            />
-            <img
-              src="imagens/anna (3).jpeg"
-              alt="Anna Costa - Especialista em extensão de cílios"
-              class="hero-image"
-              loading="lazy"
-            />
-            <img
-              src="imagens/anna (4).jpeg"
-              alt="Anna Costa - Profissional certificada"
+              src="imagens/uohi2k.jpg"
+              alt="Anna Costa - Nova técnica"
               class="hero-image"
               loading="lazy"
             />
