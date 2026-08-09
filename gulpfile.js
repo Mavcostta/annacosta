@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const cleanCSS = require("gulp-clean-css");
 const uglify = require("gulp-uglify");
 const imagemin = require("gulp-imagemin");
-const webp = require("gulp-webp");
+const webp = require("gulp-webp").default;
 const htmlmin = require("gulp-htmlmin");
 const rename = require("gulp-rename");
 const del = require("del");
@@ -42,7 +42,7 @@ function html() {
         removeComments: true,
         minifyCSS: true,
         minifyJS: true,
-      })
+      }),
     )
     .pipe(gulp.dest("dist"));
 }
@@ -58,7 +58,7 @@ function images() {
         imagemin.svgo({
           plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
         }),
-      ])
+      ]),
     )
     .pipe(gulp.dest("dist/imagens"));
 }
@@ -93,7 +93,7 @@ function serve() {
 // Tarefa de build
 const build = gulp.series(
   clean,
-  gulp.parallel(css, js, html, images, webpConvert, copy)
+  gulp.parallel(css, js, html, images, webpConvert, copy),
 );
 
 // Tarefa de desenvolvimento

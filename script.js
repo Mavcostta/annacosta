@@ -119,33 +119,45 @@ document.querySelectorAll('a[href^="#"]').forEach((ancora) => {
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
+function setMobileMenu(open) {
+  navLinks.classList.toggle("show", open);
+  menuToggle.classList.toggle("active", open);
+  document.body.classList.toggle("nav-open", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+}
+
 menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-  menuToggle.classList.toggle("active");
+  setMobileMenu(!navLinks.classList.contains("show"));
 
   // Previne scroll quando menu está aberto
-  if (navLinks.classList.contains("show")) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
+});
+
+menuToggle.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    setMobileMenu(!navLinks.classList.contains("show"));
   }
 });
 
 // Fecha menu ao clicar em um link
 document.querySelectorAll(".nav-links a").forEach((link) => {
   link.addEventListener("click", () => {
-    navLinks.classList.remove("show");
-    menuToggle.classList.remove("active");
-    document.body.style.overflow = "auto";
+    setMobileMenu(false);
   });
 });
 
 // Fecha menu ao clicar fora
 document.addEventListener("click", (e) => {
   if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-    navLinks.classList.remove("show");
-    menuToggle.classList.remove("active");
-    document.body.style.overflow = "auto";
+    setMobileMenu(false);
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && navLinks.classList.contains("show")) {
+    setMobileMenu(false);
+    menuToggle.focus();
   }
 });
 
@@ -353,7 +365,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let currentIndex = 0;
 
+  // Detectar se é o carrossel do hero (verificar id do container)
+  const carouselContainer = track.closest(".portfolio-carousel");
+  const isHeroCarousel =
+    carouselContainer && carouselContainer.id === "hero-portfolio";
+
   function getItemsPerView() {
+    // Hero sempre mostra 1 item grande
+    if (isHeroCarousel) return 1;
+    // Carrossel normal (seção serviços)
     return window.innerWidth > 1024 ? 3 : window.innerWidth > 768 ? 2 : 1;
   }
 
@@ -363,6 +383,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Criar indicadores iniciais
   function createIndicators() {
+    if (!indicatorsContainer) return;
     indicatorsContainer.innerHTML = "";
     const totalSlides = getTotalSlides();
     for (let i = 0; i < totalSlides; i++) {
@@ -384,11 +405,12 @@ document.addEventListener("DOMContentLoaded", function () {
     track.style.transform = `translateX(${offset}px)`;
 
     // Atualizar indicadores
-    document
-      .querySelectorAll(".carousel-indicators .indicator")
-      .forEach((ind, idx) => {
-        ind.classList.toggle("active", idx === currentIndex);
-      });
+    const indicators = document.querySelectorAll(
+      ".carousel-indicators .indicator",
+    );
+    indicators.forEach((ind, idx) => {
+      ind.classList.toggle("active", idx === currentIndex);
+    });
   }
 
   function goToSlide(index) {
@@ -397,20 +419,33 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCarousel();
   }
 
-  prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
+  // Autoplay para o hero carousel
+  if (isHeroCarousel) {
+    setInterval(() => {
+      const totalSlides = getTotalSlides();
+      currentIndex = (currentIndex + 1) % totalSlides;
       updateCarousel();
-    }
-  });
+    }, 3500);
+  }
 
-  nextBtn.addEventListener("click", () => {
-    const totalSlides = getTotalSlides();
-    if (currentIndex < totalSlides - 1) {
-      currentIndex++;
-      updateCarousel();
-    }
-  });
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      const totalSlides = getTotalSlides();
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+  }
 
   // Responsive: recalcular ao redimensionar
   let resizeTimeout;
