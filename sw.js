@@ -1,9 +1,12 @@
-const CACHE_NAME = "anna-costa-v1.2.0";
+const CACHE_NAME = "anna-costa-v1.12.14";
 const urlsToCache = [
   "/",
   "/index.html",
-  "/style.css",
-  "/script.js",
+  "/css/style.css",
+  "/css/style.min.css",
+  "/js/script.js",
+  "/js/optimize-images.js",
+  "/js/optimize-dimensions.js",
   "/imagens/favicon.ico",
   "/imagens/flutuante.webp",
   "/imagens/flutuante.jpeg",
@@ -11,6 +14,7 @@ const urlsToCache = [
   "/design-sobrancelhas-guarulhos.html",
   "/lash-lifting-guarulhos.html",
   "/brow-lamination-guarulhos.html",
+  "/blog.html",
 ];
 
 // Install event - cache resources

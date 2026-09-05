@@ -10,14 +10,14 @@
     </title>
     <meta
       name="description"
-      content="★★★★★ Design de Sobrancelhas Profissional em Guarulhos SP | Micropigmentação, Henna e Design Personalizado | +5 anos de experiência | Agende pelo WhatsApp"
+      content="★★★★★ Design de Sobrancelhas Profissional em Guarulhos SP | Micropigmentação, Henna e Design Personalizado | 6 anos de experiência | Agende pelo WhatsApp"
     />
 
     <link
       rel="canonical"
-      href="https://annacosta.com/design-sobrancelhas-guarulhos.html"
+      href="https://www.studioannacosta.com.br/design-sobrancelhas-guarulhos.html"
     />
-    <link rel="stylesheet" href="style.css?v=2" />
+    <link rel="stylesheet" href="css/style.css?v=20" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -30,25 +30,22 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <nav>
-      <div class="menu-toggle" id="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#sobre">Sobre</a></li>
-        <li><a href="index.html#servicos">Serviços</a></li>
-        <li><a href="index.html#portfolio">Portfólio</a></li>
-        <li><a href="index.html#contato">Contato</a></li>
+  <body class="sidebar-layout">
+    <nav class="site-nav site-sidebar" aria-label="Navegação principal">
+      <a href="index.html" class="nav-brand sidebar-brand"><span class="sidebar-logo-frame"><img src="imagens/logo-anna-costa.png" width="1536" height="1024" alt="" decoding="async" /></span><span class="sidebar-brand-copy"><strong>Anna Costa</strong><small>Cílios e Sobrancelhas</small></span></a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links mobile-menu" id="main-navigation">
+        <li><a href="index.html#home"><i class="fas fa-house" aria-hidden="true"></i><span>Início</span></a></li>
+        <li><a href="index.html#servicos" class="active" aria-current="page"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><span>Serviços</span></a></li>
+        <li><a href="index.html#portfolio"><i class="fas fa-images" aria-hidden="true"></i><span>Portfólio</span></a></li>
+        <li><a href="blog.html"><i class="fas fa-book-open" aria-hidden="true"></i><span>Blog</span></a></li>
+        <li><a href="index.html#contato"><i class="fas fa-calendar-check" aria-hidden="true"></i><span>Agendar</span></a></li>
       </ul>
     </nav>
 
     <section class="service-hero">
       <div class="container">
-        <nav class="breadcrumb">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
           <a href="index.html">Home</a>
           <span>/</span>
           <span>Design de Sobrancelhas</span>
@@ -95,9 +92,9 @@
               <h2>Design de Sobrancelhas Profissional em Guarulhos</h2>
 
               <picture>
-                <source srcset="imagens/trab5.webp" type="image/webp" />
+                <source srcset="imagens/designercomhenna.webp" type="image/webp" />
                 <img
-                  src="imagens/trab5.jpeg"
+                  src="imagens/designercomhenna.jpeg"
                   alt="Design de Sobrancelhas Guarulhos - Anna Costa"
                   class="featured-image"
                 />
@@ -256,14 +253,25 @@
       </div>
     </section>
 
-    <footer>
-      <div class="container">
-        <div class="footer-bottom">
-          <p>&copy; 2026 Studio Anna Costa. Todos os direitos reservados.</p>
+    <footer class="footer-simples">
+      <div class="footer-simples-conteudo">
+        <div class="footer-simples-marca">
+          <strong>Anna Costa</strong>
+          <span>Cílios e sobrancelhas desenhados para o seu olhar.</span>
         </div>
+        <a class="footer-simples-cta" href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener noreferrer">Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+      </div>
+      <div class="footer-simples-base">
+        <small>© 2026 Studio Anna Costa · Guarulhos — SP</small>
+        <nav class="footer-simples-sociais" aria-label="Redes sociais">
+          <a href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5511987382366" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.tiktok.com/@annacdesigner" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.google.com/maps/place/Studio+Anna+Costa/" target="_blank" rel="noopener noreferrer" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+        </nav>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js?v=3"></script>
   </body>
 </html>

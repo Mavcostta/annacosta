@@ -1,5 +1,5 @@
 /**
- * Otimização de Imagens - Servir WebP com fallback JPEG/PNG
+ * Otimização de imagens - servir WebP com fallback JPEG/PNG
  * Reduz tamanho de imagens em ~30%
  */
 

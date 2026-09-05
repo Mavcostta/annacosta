@@ -4,24 +4,20 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Production build
-dist/
-
 # Environment variables
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
 
 # API Keys e configurações sensíveis
 config.js
 *-config-private.js
-# calendar-config.js - removido do ignore pois é necessário para GitHub Pages
 
 # Arquivos temporários
 *.tmp
 *.temp
+*.backup
+*.bak
 index-updated.html
 
 # Logs
@@ -54,9 +50,6 @@ jspm_packages/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variables file
-.env
 
 # IDE files
 .vscode/

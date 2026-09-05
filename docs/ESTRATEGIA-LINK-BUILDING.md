@@ -1,4 +1,4 @@
-# 🔗 Estratégia de Link Building e Citations Locais
+# Estratégia de link building e citações locais
 
 ## Anna Costa Studio - Guarulhos SP
 
@@ -17,7 +17,7 @@
   - Serviços de beleza
 - [ ] **Endereço completo**: Av. Emílio Ribas - Gopouva, Guarulhos - SP
 - [ ] **Telefone**: (11) 98738-2366
-- [ ] **Website**: https://annacosta.com
+- [ ] **Website**: https://www.studioannacosta.com.br
 - [ ] **Horário de funcionamento**:
   - Segunda a Sexta: 9h às 19h
   - Sábado: 9h às 15h
@@ -74,7 +74,7 @@ Atendimento em Guarulhos SP. Agende pelo WhatsApp: (11) 98738-2366
 
 ### Instagram (@annamrdesigner)
 
-- [ ] **Link na bio**: https://annacosta.com
+- [ ] **Link na bio**: https://www.studioannacosta.com.br
 - [ ] **Destaques com links**: "Agende Aqui" → link do site
 - [ ] Posts 3-5x por semana
 - [ ] Stories diários com link
@@ -88,7 +88,7 @@ Atendimento em Guarulhos SP. Agende pelo WhatsApp: (11) 98738-2366
 
 ### TikTok (@annacdesigner)
 
-- [ ] Bio com link: https://annacosta.com
+- [ ] Bio com link: https://www.studioannacosta.com.br
 - [ ] Vídeos 2-3x por semana (antes/depois, processo, dicas)
 - [ ] Hashtags: #ciliosguarulhos #sobrancelhas #lashartist
 
@@ -238,7 +238,7 @@ Atendimento em Guarulhos SP. Agende pelo WhatsApp: (11) 98738-2366
 ✅ **Nome**: Anna Costa Studio  
 ✅ **Endereço**: Av. Emílio Ribas - Gopouva, Guarulhos - SP  
 ✅ **Telefone**: (11) 98738-2366  
-✅ **Website**: https://annacosta.com  
+✅ **Website**: https://www.studioannacosta.com.br  
 ✅ **E-mail**: (se tiver, adicionar)  
 ✅ **Redes Sociais**: Instagram @annamrdesigner, TikTok @annacdesigner
 

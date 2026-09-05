@@ -28,7 +28,7 @@
     />
     <meta
       property="og:image"
-      content="https://www.studioannacosta.com.br/imagens/760img.webp"
+      content="https://www.studioannacosta.com.br/imagens/essa3.webp"
     />
     <meta property="og:url" content="https://www.studioannacosta.com.br/" />
     <meta property="og:type" content="website" />
@@ -47,15 +47,16 @@
     />
     <meta
       name="twitter:image"
-      content="https://www.studioannacosta.com.br/imagens/760img.webp"
+      content="https://www.studioannacosta.com.br/imagens/essa3.webp"
     />
 
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preload" href="imagens/essa3.webp" as="image" type="image/webp" />
 
     <!-- CSS crítico -->
-    <link rel="stylesheet" href="style.min.css?v=1.5" />
+    <link rel="stylesheet" href="css/style.min.css?v=4.6" />
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -70,7 +71,9 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/imagens/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/imagens/favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64 128x128 256x256" />
+    <link rel="icon" type="image/png" href="/imagens/favicon-192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/imagens/favicon-192.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -78,7 +81,7 @@
         "name": "Studio Anna Costa",
         "@id": "https://www.studioannacosta.com.br/#studio-anna-costa",
         "url": "https://www.studioannacosta.com.br",
-        "image": "https://www.studioannacosta.com.br/imagens/760img.webp",
+        "image": "https://www.studioannacosta.com.br/imagens/essa3.webp",
         "description": "Studio especializado em extensão de cílios, design de sobrancelhas, Lash Lifting e Brow Lamination em Guarulhos.",
         "telephone": "+5511987382366",
         "priceRange": "$$",
@@ -162,7 +165,7 @@
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#d26ca4" />
   </head>
-  <body>
+  <body class="sidebar-layout">
     <a
       href="https://wa.me/5511987382366?text=Ol%C3%A1!+Vi+o+site+do+Studio+Anna+Costa+e+gostaria+de+agendar+um+hor%C3%A1rio+para+sobrancelhas+ou+c%C3%ADlios.+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
       class="whatsapp-fixo"
@@ -197,339 +200,62 @@
       </a>
     </div>
 
-    <nav>
-      <div
-        class="menu-toggle"
-        aria-label="Abrir menu"
-        aria-controls="main-navigation"
-        aria-expanded="false"
-        role="button"
-        tabindex="0"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links" id="main-navigation">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#feedback">Avaliações</a></li>
-        <li><a href="#contato">Contato</a></li>
+    <nav class="site-nav site-sidebar" aria-label="Navegação principal">
+      <a href="#home" class="nav-brand sidebar-brand">
+        <span class="sidebar-logo-frame">
+          <img src="imagens/video-logo-1-transparent.png" width="1264" height="843" alt="Logo Studio Anna Costa" decoding="async" />
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links mobile-menu" id="main-navigation">
+        <li><a href="#home" class="active" aria-current="page"><i class="fas fa-house" aria-hidden="true"></i><span>Início</span></a></li>
+        <li><a href="#servicos"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><span>Serviços</span></a></li>
+        <li><a href="#portfolio"><i class="fas fa-images" aria-hidden="true"></i><span>Portfólio</span></a></li>
+        <li><a href="blog.html"><i class="fas fa-book-open" aria-hidden="true"></i><span>Blog</span></a></li>
+        <li><a href="#contato"><i class="fas fa-calendar-check" aria-hidden="true"></i><span>Agendar</span></a></li>
       </ul>
     </nav>
 
-    <section id="home" class="home">
-      <div class="home-content">
-        <div class="texto-hero">
-          <div class="logo-animation">
-            <h1 class="animated-name">
-              Anna Costa<span class="visually-hidden">
-                — Especialista em Extensão de Cílios e Design de Sobrancelhas em
-                Guarulhos</span
-              >
-            </h1>
-            <p class="hero-tagline">
-              Extensão de Cílios &amp; Design de Sobrancelhas em Guarulhos
-            </p>
-            <p class="hero-headline">Seus olhos merecem o melhor cuidado</p>
-            <p class="hero-subheadline">
-              Técnicas avançadas, produtos premium e resultados que duram
-              semanas. Mais de 3.000 clientes transformadas em Guarulhos e
-              região.
-            </p>
-            <div class="hero-cta-group">
-              <a
-                href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio."
-                class="btn-hero-primary"
-                onclick="trackEvent('CTA', 'click', 'Hero WhatsApp')"
-              >
-                <i class="fab fa-whatsapp"></i>
-                <span>Agendar pelo WhatsApp</span>
-              </a>
-              <a
-                href="https://instagram.com/annamrdesigner"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-hero-secondary"
-                onclick="trackEvent('CTA', 'click', 'Hero Portfolio')"
-              >
-                <span>Ver Portfólio</span>
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-            <div class="hero-trust">
-              <span><i class="fas fa-star"></i> 5.0 no Google</span>
-              <span class="trust-sep">·</span>
-              <span>+3.000 clientes</span>
-              <span class="trust-sep">·</span>
-              <span>6 anos de experiência</span>
-            </div>
-
-            <!-- Carrossel de Depoimentos -->
-            <div
-              class="hero-testimonials"
-              aria-live="polite"
-              aria-label="Depoimentos de clientes"
-            >
-              <div class="testimonial-slide active">
-                <p class="testimonial-text">
-                  “Trabalho Impecável! Sem dúvidas uma profissional que ama o
-                  que faz e faz com excelência.”
-                </p>
-                <p class="testimonial-author">- Pamela Santos</p>
-              </div>
-              <div class="testimonial-slide">
-                <p class="testimonial-text">
-                  “Simplesmente perfeito!! Ana tem as melhores técnicas e os
-                  melhores produtos.”
-                </p>
-                <p class="testimonial-author">- Nicole Radeski</p>
-              </div>
-              <div class="testimonial-slide">
-                <p class="testimonial-text">
-                  “Um atendimento impecável do começo ao fim, indico de olhos
-                  fechados!”
-                </p>
-                <p class="testimonial-author">- Evelyn</p>
-              </div>
-              <div class="testimonial-slide">
-                <p class="testimonial-text">
-                  “Perfeita em cada detalhe, ótimo atendimento e um belíssimo
-                  trabalho.”
-                </p>
-                <p class="testimonial-author">- Joyce Silva</p>
-              </div>
-              <div class="testimonial-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-carousel" id="hero-portfolio">
-            <div class="portfolio-track">
-              <div class="portfolio-item">
-                <picture>
-                  <source
-                    srcset="imagens/Design com Henna + Brasileiro Capping.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="imagens/Design com Henna + Brasileiro Capping.jpeg"
-                    alt="Design com Henna + Brasileiro Capping realizado pela Anna Costa"
-                    loading="lazy"
-                  />
-                </picture>
-                <div class="portfolio-caption">
-                  <h3>Design com Henna + Brasileiro Capping</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <picture>
-                  <source
-                    srcset="imagens/Design personalizado + Volume Brasileiro.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="imagens/Design personalizado + Volume Brasileiro.jpeg"
-                    alt="Design Personalizado + Volume Brasileiro de alta qualidade"
-                    loading="lazy"
-                  />
-                </picture>
-                <div class="portfolio-caption">
-                  <h3>Design Personalizado + Volume Brasileiro</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <img
-                  src="imagens/Efeito Fox delineado.jpeg"
-                  alt="Efeito Fox Delineado com resultado profissional"
-                  loading="lazy"
-                />
-                <div class="portfolio-caption">
-                  <h3>Efeito Fox Delineado</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <img
-                  src="imagens/Volume 6D + Brow Lamination.jpeg"
-                  alt="Volume 6D + Brow Lamination em cliente satisfeita"
-                  loading="lazy"
-                />
-                <div class="portfolio-caption">
-                  <h3>Volume 6D + Brow Lamination</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <img
-                  src="imagens/Lash lifting e design com Henna.jpeg"
-                  alt="Lash Lifting e Design com Henna - resultado impecável"
-                  loading="lazy"
-                />
-                <div class="portfolio-caption">
-                  <h3>Lash Lifting + Design com Henna</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <img
-                  src="imagens/designercomhenna.jpeg"
-                  alt="Designer com Henna - trabalho personalizado"
-                  loading="lazy"
-                />
-                <div class="portfolio-caption">
-                  <h3>Designer com Henna</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <picture>
-                  <source srcset="imagens/brasileirocapping.webp" type="image/webp" />
-                  <img
-                    src="imagens/brasileirocapping.jpeg"
-                    alt="Extensão Brasileiro Capping - resultado impecável"
-                    loading="lazy"
-                  />
-                </picture>
-                <div class="portfolio-caption">
-                  <h3>Extensão Brasileiro Capping</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <picture>
-                  <source srcset="imagens/efeitofox.webp" type="image/webp" />
-                  <img
-                    src="imagens/efeitofox.jpeg"
-                    alt="Efeito Fox - design de sobrancelhas"
-                    loading="lazy"
-                  />
-                </picture>
-                <div class="portfolio-caption">
-                  <h3>Efeito Fox</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <img
-                  src="imagens/efeitofoxdelineado.jpeg"
-                  alt="Efeito Fox Delineado - design de sobrancelhas"
-                  loading="lazy"
-                />
-                <div class="portfolio-caption">
-                  <h3>Efeito Fox Delineado</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <img
-                  src="imagens/Volume brasileiro e design.jpeg"
-                  alt="Volume Brasileiro e Design de Sobrancelhas"
-                  loading="lazy"
-                />
-                <div class="portfolio-caption">
-                  <h3>Volume Brasileiro + Design</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <picture>
-                  <source srcset="imagens/Design personalizado + Volume Brasileiro (2).webp" type="image/webp" />
-                  <img
-                    src="imagens/Design personalizado + Volume Brasileiro (2).jpeg"
-                    alt="Design Personalizado + Volume Brasileiro"
-                    loading="lazy"
-                  />
-                </picture>
-                <div class="portfolio-caption">
-                  <h3>Design Personalizado + Volume Brasileiro</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <picture>
-                  <source srcset="imagens/efeitofoxmarrom.webp" type="image/webp" />
-                  <img
-                    src="imagens/efeitofoxmarrom.jpeg"
-                    alt="Efeito Fox Marrom - design de sobrancelhas"
-                    loading="lazy"
-                  />
-                </picture>
-                <div class="portfolio-caption">
-                  <h3>Efeito Fox Marrom</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <picture>
-                  <source srcset="imagens/lashliftingedesignercomhenna.webp" type="image/webp" />
-                  <img
-                    src="imagens/lashliftingedesignercomhenna.jpeg"
-                    alt="Lash Lifting e Designer com Henna"
-                    loading="lazy"
-                  />
-                </picture>
-                <div class="portfolio-caption">
-                  <h3>Lash Lifting + Designer com Henna</h3>
-                </div>
-              </div>
-
-              <div class="portfolio-item">
-                <picture>
-                  <source srcset="imagens/Volume 6D + Brow Lamination (2).webp" type="image/webp" />
-                  <img
-                    src="imagens/Volume 6D + Brow Lamination (2).jpeg"
-                    alt="Volume 6D + Brow Lamination"
-                    loading="lazy"
-                  />
-                </picture>
-                <div class="portfolio-caption">
-                  <h3>Volume 6D + Brow Lamination</h3>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
+    <section id="home" class="home home-clean" aria-labelledby="home-title">
+      <div class="home-clean-copy">
+        <h1 id="home-title" class="home-clean-brand">
+          <span class="home-clean-brand-word">Anna</span>
+          <span class="home-clean-brand-word">Costa</span>
+          <span class="visually-hidden">— Extensão de cílios e design de sobrancelhas em Guarulhos</span>
+        </h1>
+        <p class="home-clean-service">
+          <strong>Extensão de cílios e sobrancelhas</strong>
+          <strong>desenhadas para o seu olhar.</strong>
+        </p>
+        <p class="home-clean-location">Guarulhos — SP</p>
+        <a
+          class="home-clean-cta"
+          href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
       </div>
+
+      <figure class="home-clean-image">
+        <picture class="home-clean-poster">
+          <source srcset="imagens/essa3.webp" type="image/webp" />
+          <img
+            src="imagens/essa3.jpeg"
+            width="1200"
+            height="1600"
+            alt="Anna Costa, especialista em cílios e sobrancelhas em Guarulhos"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
+      </figure>
     </section>
 
-    <!-- Barra de Prova Social -->
-    <div class="social-proof-bar">
-      <div class="social-proof-inner">
-        <div class="proof-item">
-          <i class="fas fa-star"></i>
-          <strong>5.0</strong>
-          <span>no Google</span>
-        </div>
-        <div class="proof-divider"></div>
-        <div class="proof-item">
-          <i class="fas fa-users"></i>
-          <strong>+3.000</strong>
-          <span>clientes transformadas</span>
-        </div>
-        <div class="proof-divider"></div>
-        <div class="proof-item">
-          <i class="fas fa-calendar-alt"></i>
-          <strong>6+ anos</strong>
-          <span>de experiência</span>
-        </div>
-        <div class="proof-divider"></div>
-        <div class="proof-item">
-          <i class="fas fa-medal"></i>
-          <strong>Certificação Internacional</strong>
-        </div>
-      </div>
-    </div>
-
-    <section id="sobre">
+    <section id="sobre" data-reveal>
       <div class="container">
         <div class="sobre-content">
           <div class="sobre-header">
@@ -547,7 +273,7 @@
                   beleza única de cada mulher."
                 </p>
                 <p>
-                  Com mais de <strong>6 anos de experiência</strong> no mercado
+                  Com <strong>6 anos de experiência</strong> no mercado
                   da beleza, me especializei em técnicas que combinam
                   <strong>arte e ciência</strong> para resultados naturais e
                   duradouros.
@@ -703,7 +429,7 @@
                 />
                 <div class="gallery-overlay">
                   <h4>Experiência</h4>
-                  <p>5+ anos de expertise</p>
+                  <p>6 anos de expertise</p>
                 </div>
               </div>
               <div class="gallery-item">
@@ -718,83 +444,76 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
 
-    <section id="meu-studio">
+    <section id="meu-studio" class="studio-section" data-reveal>
       <div class="container">
-        <h2>Meu Studio</h2>
-        <p>
-          Conheça o espaço onde a magia acontece. Um ambiente acolhedor e
-          profissional para realçar sua beleza.
-        </p>
-        <div class="studio-gallery">
-          <div class="gallery-item">
-            <img
-              src="imagens/studio1.jpeg"
-              alt="Vista interna do Studio Anna Costa - Ambiente acolhedor para tratamentos de beleza"
-            />
-            <div class="gallery-overlay">
-              <h3>Espaço Principal</h3>
-              <p>Ambiente moderno e confortável</p>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <img
-              src="imagens/studio2.jpeg"
-              alt="Equipamentos modernos do Studio Anna Costa para extensão de cílios"
-            />
-            <div class="gallery-overlay">
-              <h3>Equipamentos Profissionais</h3>
-              <p>Tecnologia de ponta para resultados perfeitos</p>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <img
-              src="imagens/studio3.jpeg"
-              alt="Área de atendimento personalizada no Studio Anna Costa"
-            />
-            <div class="gallery-overlay">
-              <h3>Atendimento Personalizado</h3>
-              <p>Cuidado individualizado para cada cliente</p>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <img
-              src="imagens/studio4.jpeg"
-              alt="Iluminação profissional para procedimentos de beleza"
-            />
-            <div class="gallery-overlay">
-              <h3>Iluminação Especializada</h3>
-              <p>Ambiente ideal para procedimentos precisos</p>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <img
-              src="imagens/studio5.jpeg"
-              alt="Produtos premium utilizados no Studio Anna Costa"
-            />
-            <div class="gallery-overlay">
-              <h3>Produtos Premium</h3>
-              <p>Marcas reconhecidas e de alta qualidade</p>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <img
-              src="imagens/studio6.jpeg"
-              alt="Decoração elegante do Studio Anna Costa"
-            />
-            <div class="gallery-overlay">
-              <h3>Decoração Elegante</h3>
-              <p>Ambiente sofisticado e relaxante</p>
-            </div>
+        <div class="studio-showcase">
+          <div class="studio-copy">
+            <span class="studio-eyebrow">Meu Studio</span>
+            <h2>Espaço calmo para cuidar do seu olhar</h2>
+            <p>
+              Atendimento reservado, ambiente confortável e tudo preparado para
+              você relaxar enquanto realça cílios e sobrancelhas.
+            </p>
+
+            <ul class="studio-points" aria-label="Diferenciais do studio">
+              <li><i class="fas fa-spray-can-sparkles" aria-hidden="true"></i> Higiene</li>
+              <li><i class="fas fa-couch" aria-hidden="true"></i> Conforto</li>
+              <li><i class="fas fa-user-check" aria-hidden="true"></i> Atendimento individual</li>
+            </ul>
+
+            <a href="#contato" class="botao-studio">Agendar Atendimento</a>
           </div>
         </div>
-        <a href="#contato" class="botao-studio">Agendar Atendimento</a>
+
+        <div class="studio-stack-gallery" data-studio-gallery aria-label="Fotos do Studio Anna Costa">
+          <p class="studio-gallery-note">Cada detalhe pensado para receber você.</p>
+
+          <button class="studio-stack-arrow studio-stack-prev" type="button" data-studio-prev aria-label="Foto anterior">‹</button>
+          <div class="studio-stack" data-studio-stack tabindex="0">
+            <button class="studio-photo-card is-active" type="button" data-studio-card aria-label="Ver próxima foto: Um espaço feito para você">
+              <img class="studio-photo-sign" src="imagens/studio1.jpeg" alt="Placa do Studio Anna Costa" loading="lazy" decoding="async" />
+              <span>Um espaço feito para você</span>
+            </button>
+            <button class="studio-photo-card is-next" type="button" data-studio-card aria-label="Ver próxima foto: Conforto em cada detalhe">
+              <img class="studio-photo-entrance" src="imagens/studio2.jpeg" alt="Entrada do Studio Anna Costa com placa e espelho iluminado" loading="lazy" decoding="async" />
+              <span>Conforto em cada detalhe</span>
+            </button>
+            <button class="studio-photo-card is-back" type="button" data-studio-card aria-label="Ver próxima foto: Pequenos cuidados no atendimento">
+              <img class="studio-photo-room" src="imagens/studio5.jpeg" alt="Sala de atendimento do Studio Anna Costa com maca e iluminação profissional" loading="lazy" decoding="async" />
+              <span>Cuidado do início ao fim</span>
+            </button>
+            <button class="studio-photo-card" type="button" data-studio-card aria-label="Ver próxima foto: Conforto em cada detalhe">
+              <img class="studio-photo-sofa" src="imagens/studio4.jpeg" alt="Área de espera do Studio Anna Costa com sofá e decoração floral" loading="lazy" decoding="async" />
+              <span>Conforto em cada detalhe</span>
+            </button>
+            <button class="studio-photo-card" type="button" data-studio-card aria-label="Ver próxima foto: Cuidado do início ao fim">
+              <img class="studio-photo-details" src="imagens/studio3.jpeg" alt="Mesa de apoio com itens para clientes do Studio Anna Costa" loading="lazy" decoding="async" />
+              <span>Pequenos cuidados no atendimento</span>
+            </button>
+            <button class="studio-photo-card" type="button" data-studio-card aria-label="Ver próxima foto: Um cantinho preparado com carinho">
+              <img class="studio-photo-care" src="imagens/studio6.jpeg" alt="Cantinho de cuidado do Studio Anna Costa com espelho e água para clientes" loading="lazy" decoding="async" />
+              <span>Um cantinho preparado com carinho</span>
+            </button>
+          </div>
+          <button class="studio-stack-arrow studio-stack-next" type="button" data-studio-next aria-label="Próxima foto">›</button>
+
+          <div class="studio-stack-dots" aria-label="Indicadores da galeria">
+            <button type="button" data-studio-dot aria-label="Mostrar fotos 1 e 2" aria-current="true"></button>
+            <button type="button" data-studio-dot aria-label="Mostrar fotos 3 e 4"></button>
+            <button type="button" data-studio-dot aria-label="Mostrar fotos 5 e 6"></button>
+          </div>
+          <span class="visually-hidden" aria-live="polite" data-studio-status>Foto 1 de 6: Um espaço feito para você</span>
+        </div>
       </div>
     </section>
 
     <!-- Seção Como Funciona -->
-    <section id="como-funciona">
+    <section id="como-funciona" data-reveal>
       <div class="container">
         <h2>Como é o Atendimento</h2>
         <p class="section-desc">
@@ -844,7 +563,7 @@
     </section>
 
     <!-- Galeria de Serviços -->
-    <section id="servicos">
+    <section id="servicos" data-reveal>
       <div class="container">
         <h2>Meus Serviços</h2>
         <p class="portfolio-subtitle">
@@ -888,7 +607,89 @@
       </div>
     </section>
 
-    <section id="feedback">
+    <section id="portfolio" class="work-portfolio" aria-labelledby="portfolio-title" data-reveal>
+      <div class="work-portfolio-inner">
+        <header class="work-portfolio-header">
+          <span class="work-eyebrow">Portfólio</span>
+          <h2 id="portfolio-title">Resultados reais</h2>
+          <p>Trabalhos pensados para valorizar cada formato de olhar.</p>
+        </header>
+
+        <div class="work-grid">
+          <figure class="work-card">
+            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/Design personalizado + Volume Brasileiro.webp" data-title="Design personalizado + Volume Brasileiro" aria-label="Ampliar Design personalizado com Volume Brasileiro">
+              <picture>
+                <source srcset="imagens/Design personalizado + Volume Brasileiro.webp" type="image/webp" />
+                <img src="imagens/Design personalizado + Volume Brasileiro.jpeg" width="1200" height="1600" loading="lazy" decoding="async" alt="Cliente com design personalizado de sobrancelhas e extensão Volume Brasileiro" />
+              </picture>
+            </button>
+            <figcaption>Design personalizado <span>Volume Brasileiro</span></figcaption>
+          </figure>
+
+          <figure class="work-card">
+            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/brasileirocapping.webp" data-title="Brasileiro Capping" aria-label="Ampliar resultado de Brasileiro Capping">
+              <picture>
+                <source srcset="imagens/brasileirocapping.webp" type="image/webp" />
+                <img src="imagens/brasileirocapping.jpeg" width="1200" height="1600" loading="lazy" decoding="async" alt="Resultado de extensão de cílios com técnica Brasileiro Capping" />
+              </picture>
+            </button>
+            <figcaption>Extensão de cílios <span>Brasileiro Capping</span></figcaption>
+          </figure>
+
+          <figure class="work-card">
+            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/Efeito Fox delineado.webp" data-title="Efeito Fox delineado" aria-label="Ampliar resultado de Efeito Fox delineado">
+              <picture>
+                <source srcset="imagens/Efeito Fox delineado.webp" type="image/webp" />
+                <img src="imagens/Efeito Fox delineado.jpeg" width="1206" height="1600" loading="lazy" decoding="async" alt="Detalhe de extensão de cílios com Efeito Fox delineado" />
+              </picture>
+            </button>
+            <figcaption>Extensão de cílios <span>Efeito Fox delineado</span></figcaption>
+          </figure>
+
+          <figure class="work-card">
+            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/efeitofoxmarrom.webp" data-title="Efeito Fox marrom" aria-label="Ampliar resultado de Efeito Fox marrom">
+              <picture>
+                <source srcset="imagens/efeitofoxmarrom.webp" type="image/webp" />
+                <img src="imagens/efeitofoxmarrom.jpeg" width="1200" height="1600" loading="lazy" decoding="async" alt="Cliente com extensão de cílios Efeito Fox marrom" />
+              </picture>
+            </button>
+            <figcaption>Extensão de cílios <span>Efeito Fox marrom</span></figcaption>
+          </figure>
+
+          <figure class="work-card">
+            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/Lash lifting e design com Henna.webp" data-title="Lash Lifting + Design com Henna" aria-label="Ampliar resultado de Lash Lifting com Design de Henna">
+              <picture>
+                <source srcset="imagens/Lash lifting e design com Henna.webp" type="image/webp" />
+                <img src="imagens/Lash lifting e design com Henna.jpeg" width="1200" height="1600" loading="lazy" decoding="async" alt="Resultado de Lash Lifting combinado com design de sobrancelhas com henna" />
+              </picture>
+            </button>
+            <figcaption>Lash Lifting <span>Design com Henna</span></figcaption>
+          </figure>
+
+          <figure class="work-card">
+            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/Volume 6D + Brow Lamination.webp" data-title="Volume 6D + Brow Lamination" aria-label="Ampliar resultado de Volume 6D com Brow Lamination">
+              <picture>
+                <source srcset="imagens/Volume 6D + Brow Lamination.webp" type="image/webp" />
+                <img src="imagens/Volume 6D + Brow Lamination.jpeg" width="932" height="1060" loading="lazy" decoding="async" alt="Resultado combinado de extensão Volume 6D e Brow Lamination" />
+              </picture>
+            </button>
+            <figcaption>Volume 6D <span>Brow Lamination</span></figcaption>
+          </figure>
+        </div>
+
+        <a class="work-instagram-link" href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer">
+          Ver mais trabalhos no Instagram <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <dialog class="portfolio-lightbox" id="portfolio-lightbox" aria-label="Visualização ampliada do portfólio">
+      <button class="portfolio-lightbox-close" type="button" data-dialog-close aria-label="Fechar imagem">×</button>
+      <img src="" alt="" />
+      <p></p>
+    </dialog>
+
+    <section id="feedback" data-reveal>
       <div class="container">
         <div class="feedback-header">
           <h2>Avaliações dos Clientes</h2>
@@ -1111,7 +912,7 @@
       </div>
     </section>
 
-    <section id="contato">
+    <section id="contato" data-reveal>
       <div class="container">
         <div class="contato-header">
           <h2>Entre em Contato</h2>
@@ -1220,7 +1021,7 @@
       </div>
     </section>
 
-    <section id="faq">
+    <section id="faq" data-reveal>
       <div class="container">
         <h2>Perguntas Frequentes</h2>
         <p class="faq-subtitle">Tire suas dúvidas sobre nossos serviços</p>
@@ -1247,45 +1048,31 @@
 
     <!-- Botão Voltar ao Topo -->
     <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
-      <i class="fas fa-arrow-up"></i>
+      <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
     <!-- NOVO FOOTER MODERNO E PROFISSIONAL -->
     <footer class="footer-simples">
-      <span>© 2026 Anna Costa — Designer de Cílios & Sobrancelhas</span>
-      <div class="footer-simples-sociais">
-        <a href="https://www.instagram.com/annamrdesigner/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/5511987382366" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.tiktok.com/@annacdesigner" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.google.com/maps/place/Studio+Anna+Costa/@-23.4009213,-46.4515011,15z/data=!4m8!3m7!1s0x94ce8bd863e8af37:0x891afd6c29a1a211!8m2!3d-23.4009216!4d-46.4412014!9m1!1b1!16s%2Fg%2F11mcfpf8_r?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+      <div class="footer-simples-conteudo">
+        <div class="footer-simples-marca">
+          <strong>Anna Costa</strong>
+          <span>Cílios e sobrancelhas desenhados para o seu olhar.</span>
+        </div>
+        <a class="footer-simples-cta" href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener noreferrer">Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+      </div>
+      <div class="footer-simples-base">
+        <small>© 2026 Studio Anna Costa · Guarulhos — SP</small>
+        <nav class="footer-simples-sociais" aria-label="Redes sociais">
+          <a href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5511987382366" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.tiktok.com/@annacdesigner" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.google.com/maps/place/Studio+Anna+Costa/" target="_blank" rel="noopener noreferrer" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+        </nav>
       </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="script.js" defer></script>
-
-    <!-- Script do Botão Voltar ao Topo -->
-    <script>
-      // Mostrar/ocultar botão ao rolar
-      window.addEventListener("scroll", function () {
-        const backToTop = document.getElementById("backToTop");
-        if (window.pageYOffset > 300) {
-          backToTop.classList.add("show");
-        } else {
-          backToTop.classList.remove("show");
-        }
-      });
-
-      // Voltar ao topo suavemente ao clicar
-      document
-        .getElementById("backToTop")
-        .addEventListener("click", function () {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        });
-    </script>
+    <script src="js/script.js?v=3" defer></script>
 
     <!-- Google Reviews Integration Script -->
     <script defer>

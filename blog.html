@@ -13,6 +13,10 @@
     />
     <meta name="author" content="Anna Costa" />
     <title>Blog - Anna Costa Designer | Dicas de Cílios e Sobrancelhas</title>
+    <link
+      rel="canonical"
+      href="https://www.studioannacosta.com.br/blog.html"
+    />
 
     <!-- Preload de fontes críticas (Poppins e Playfair) - Accelera rendering -->
     <link
@@ -32,8 +36,8 @@
 
     <!-- DNS Prefetch e Preload -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="preload" href="style.min.css?v=1.1" as="style" />
-    <link rel="stylesheet" href="style.min.css?v=1.1" />
+    <link rel="preload" href="css/style.min.css?v=4.6" as="style" />
+    <link rel="stylesheet" href="css/style.min.css?v=4.6" />
 
     <!-- Preconnect para recursos -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -77,7 +81,7 @@
       }
     </script>
   </head>
-  <body>
+  <body class="sidebar-layout">
     <a
       href="https://wa.me/5511987382366"
       class="whatsapp-fixo"
@@ -87,23 +91,15 @@
       <i class="fab fa-whatsapp"></i>
     </a>
 
-    <nav>
-      <div
-        class="menu-toggle"
-        aria-label="Abrir menu"
-        role="button"
-        tabindex="0"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="index.html#sobre">Sobre</a></li>
-        <li><a href="index.html#servicos">Serviços</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="index.html#contato">Contato</a></li>
+    <nav class="site-nav site-sidebar" aria-label="Navegação principal">
+      <a href="index.html" class="nav-brand sidebar-brand"><span class="sidebar-logo-frame"><img src="imagens/logo-anna-costa.png" width="1536" height="1024" alt="" decoding="async" /></span><span class="sidebar-brand-copy"><strong>Anna Costa</strong><small>Cílios e Sobrancelhas</small></span></a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links mobile-menu" id="main-navigation">
+        <li><a href="index.html#home"><i class="fas fa-house" aria-hidden="true"></i><span>Início</span></a></li>
+        <li><a href="index.html#servicos"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><span>Serviços</span></a></li>
+        <li><a href="index.html#portfolio"><i class="fas fa-images" aria-hidden="true"></i><span>Portfólio</span></a></li>
+        <li><a href="blog.html" class="active" aria-current="page"><i class="fas fa-book-open" aria-hidden="true"></i><span>Blog</span></a></li>
+        <li><a href="index.html#contato"><i class="fas fa-calendar-check" aria-hidden="true"></i><span>Agendar</span></a></li>
       </ul>
     </nav>
 
@@ -127,6 +123,11 @@
     <!-- Blog Posts Grid -->
     <section class="blog-posts">
       <div class="container">
+        <div class="blog-section-heading">
+          <span>Conteúdo para você</span>
+          <h2>Artigos recentes</h2>
+          <p>Guias rápidos para cuidar dos cílios e sobrancelhas.</p>
+        </div>
         <div class="blog-grid">
           <!-- Post 1: Como Cuidar de Cílios Extensos -->
           <article
@@ -352,7 +353,7 @@
             Extensão de cílios é um investimento em sua beleza! Mas para que
             dure o máximo possível, é essencial manter uma rotina de cuidados
             diários. Neste artigo, vou compartilhar todos os segredos que
-            aprendi em 5 anos de experiência profissional.
+            aprendi em 6 anos de experiência profissional.
           </p>
 
           <h2>1. Higiene Diária - O Mais Importante</h2>
@@ -1311,132 +1312,35 @@
       </div>
     </section>
 
-    <!-- NOVO FOOTER MODERNO E PROFISSIONAL -->
-    <footer>
-      <div class="footer-container">
-        <!-- Section 1: Sobre -->
-        <div class="footer-section">
-          <div class="footer-logo">
-            <h3>Anna Costa</h3>
-            <p class="footer-tagline">Designer de Cílios & Sobrancelhas</p>
-          </div>
-          <p class="footer-desc">
-            Especialista em extensão de cílios e design de sobrancelhas com 5+
-            anos de experiência. Qualidade, profissionalismo e beleza em cada
-            procedimento.
-          </p>
-          <div class="footer-socials">
-            <a
-              href="https://www.instagram.com/annamrdesigner/"
-              target="_blank"
-              aria-label="Instagram"
-              title="Instagram"
-            >
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a
-              href="https://wa.me/5511987382366"
-              target="_blank"
-              aria-label="WhatsApp"
-              title="WhatsApp"
-            >
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a
-              href="https://www.tiktok.com/@annacdesigner"
-              target="_blank"
-              aria-label="TikTok"
-              title="TikTok"
-            >
-              <i class="fab fa-tiktok"></i>
-            </a>
-            <a
-              href="https://www.google.com/maps/place/Studio+Anna+Costa/@-23.4009213,-46.4515011,15z/data=!4m8!3m7!1s0x94ce8bd863e8af37:0x891afd6c29a1a211!8m2!3d-23.4009216!4d-46.4412014!9m1!1b1!16s%2Fg%2F11mcfpf8_r?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D"
-              target="_blank"
-              aria-label="Google Maps"
-              title="Localização"
-            >
-              <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
+    <footer class="footer-simples">
+      <div class="footer-simples-conteudo">
+        <div class="footer-simples-marca">
+          <strong>Anna Costa</strong>
+          <span>Cílios e sobrancelhas desenhados para o seu olhar.</span>
         </div>
-
-        <!-- Section 2: Serviços -->
-        <div class="footer-section">
-          <h4>Serviços</h4>
-          <ul class="footer-links">
-            <li><a href="index.html#servicos">Extensão de Cílios</a></li>
-            <li><a href="index.html#servicos">Design de Sobrancelhas</a></li>
-            <li><a href="index.html#servicos">Lash Lifting</a></li>
-            <li><a href="index.html#servicos">Brow Lamination</a></li>
-            <li><a href="index.html#servicos">Henna & Micropigmentação</a></li>
-          </ul>
-        </div>
-
-        <!-- Section 3: Links Úteis -->
-        <div class="footer-section">
-          <h4>Links Úteis</h4>
-          <ul class="footer-links">
-            <li><a href="index.html#sobre">Sobre Mim</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="index.html#faq">Perguntas Frequentes</a></li>
-            <li><a href="index.html#feedback">Avaliações</a></li>
-            <li><a href="index.html#contato">Agendamento</a></li>
-          </ul>
-        </div>
-
-        <!-- Section 4: Contato -->
-        <div class="footer-section">
-          <h4>Contato & Localização</h4>
-          <div class="footer-contact">
-            <p>
-              <i class="fas fa-phone"></i>
-              <a href="https://wa.me/5511987382366">(11) 98738-2366</a>
-            </p>
-            <p>
-              <i class="fas fa-map-marker-alt"></i>
-              Guarulhos, SP
-            </p>
-            <p>
-              <i class="fas fa-star"></i>
-              <span class="rating">5.0 ★ • 23 avaliações</span>
-            </p>
-          </div>
-          <a
-            href="https://wa.me/5511987382366?text=Oi%20Anna!%20Gostaria%20de%20agendar!"
-            class="footer-cta"
-          >
-            Agende Agora
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
+        <a class="footer-simples-cta" href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener noreferrer">Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i></a>
       </div>
-
-      <!-- Footer Bottom -->
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p class="copyright">
-            © 2026 Studio Anna Costa. Todos os direitos reservados.
-          </p>
-          <div class="footer-legal">
-            <a href="index.html">Home</a> •
-            <a href="index.html#sobre">Sobre</a> •
-            <a href="index.html#contato">Contato</a>
-          </div>
-        </div>
+      <div class="footer-simples-base">
+        <small>© 2026 Studio Anna Costa · Guarulhos — SP</small>
+        <nav class="footer-simples-sociais" aria-label="Redes sociais">
+          <a href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5511987382366" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.tiktok.com/@annacdesigner" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.google.com/maps/place/Studio+Anna+Costa/" target="_blank" rel="noopener noreferrer" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+        </nav>
       </div>
     </footer>
 
     <!-- Botão Voltar ao Topo -->
     <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
-      <i class="fas fa-arrow-up"></i>
+      <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
     <!-- Scripts -->
     <!-- Otimização de Performance -->
-    <script src="optimize-images.js" defer></script>
-    <script src="optimize-dimensions.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="js/optimize-images.js" defer></script>
+    <script src="js/optimize-dimensions.js" defer></script>
+    <script src="js/script.js?v=3" defer></script>
     <script>
       // Funcionalidade de Busca de Posts
       const searchInput = document.getElementById("searchPosts");
@@ -1458,41 +1362,6 @@
         });
       });
 
-      // Voltar ao topo
-      window.addEventListener("scroll", function () {
-        const backToTop = document.getElementById("backToTop");
-        if (window.pageYOffset > 300) {
-          backToTop?.classList.add("show");
-        } else {
-          backToTop?.classList.remove("show");
-        }
-      });
-
-      document
-        .getElementById("backToTop")
-        ?.addEventListener("click", function () {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-
-      // Menu mobile
-      const menuToggle = document.querySelector(".menu-toggle");
-      const navLinks = document.querySelector(".nav-links");
-
-      menuToggle?.addEventListener("click", () => {
-        navLinks?.classList.toggle("show");
-        menuToggle.classList.toggle("active");
-        document.body.style.overflow = navLinks?.classList.contains("show")
-          ? "hidden"
-          : "auto";
-      });
-
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks?.classList.remove("show");
-          menuToggle?.classList.remove("active");
-          document.body.style.overflow = "auto";
-        });
-      });
     </script>
   </body>
 </html>

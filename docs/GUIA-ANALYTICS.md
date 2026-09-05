@@ -1,6 +1,8 @@
-# 📊 Guia de Analytics e Monitoramento
+# Guia de Analytics e monitoramento
 
 ## Anna Costa Studio - Rastreamento de Conversões
+
+> Status atual: Google Analytics não está ativo. Configure um Measurement ID e carregue `js/analytics.js` somente após revisar o consentimento e a política de privacidade.
 
 ---
 
@@ -12,14 +14,14 @@
 2. Clique em "Começar a medir"
 3. Preencha:
    - **Nome da conta**: Anna Costa Studio
-   - **Nome da propriedade**: annacosta.com
+   - **Nome da propriedade**: www.studioannacosta.com.br
    - **Fuso horário**: (GMT-03:00) Brasília
    - **Moeda**: Real brasileiro (BRL)
 
 ### Passo 2: Criar Data Stream
 
 1. Selecione "Web"
-2. **URL do site**: https://annacosta.com
+2. **URL do site**: https://www.studioannacosta.com.br
 3. **Nome do stream**: Site Principal
 4. Ative "Enhanced measurement" (medição aprimorada)
 
@@ -56,7 +58,7 @@ Adicionar antes do fechamento do `</body>`:
 
 ```html
 <!-- Analytics de Conversões -->
-<script src="analytics.js" defer></script>
+<script src="js/analytics.js" defer></script>
 ```
 
 ---
@@ -68,7 +70,7 @@ Adicionar antes do fechamento do `</body>`:
 1. Acesse: https://search.google.com/search-console
 2. Clique em "Adicionar propriedade"
 3. Escolha "Prefixo do URL"
-4. Digite: `https://annacosta.com`
+4. Digite: `https://www.studioannacosta.com.br`
 
 ### Passo 2: Verificar Propriedade
 
@@ -90,7 +92,7 @@ Adicionar antes do fechamento do `</body>`:
 ### Passo 3: Enviar Sitemap
 
 1. No Search Console, vá em "Sitemaps"
-2. Adicione: `https://annacosta.com/sitemap.xml`
+2. Adicione: `https://www.studioannacosta.com.br/sitemap.xml`
 3. Clique em "Enviar"
 
 ### Passo 4: Configurar Links Internos
@@ -108,31 +110,31 @@ O arquivo `sitemap.xml` precisa incluir as novas páginas de serviços:
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://annacosta.com/</loc>
+    <loc>https://www.studioannacosta.com.br/</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://annacosta.com/extensao-cilios-guarulhos.html</loc>
+    <loc>https://www.studioannacosta.com.br/extensao-cilios-guarulhos.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://annacosta.com/design-sobrancelhas-guarulhos.html</loc>
+    <loc>https://www.studioannacosta.com.br/design-sobrancelhas-guarulhos.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://annacosta.com/lash-lifting-guarulhos.html</loc>
+    <loc>https://www.studioannacosta.com.br/lash-lifting-guarulhos.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://annacosta.com/brow-lamination-guarulhos.html</loc>
+    <loc>https://www.studioannacosta.com.br/brow-lamination-guarulhos.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -144,7 +146,7 @@ O arquivo `sitemap.xml` precisa incluir as novas páginas de serviços:
 
 ## 📱 PARTE 4: Eventos Rastreados Automaticamente
 
-O arquivo `analytics.js` já rastreia automaticamente:
+O arquivo `js/analytics.js` já rastreia automaticamente:
 
 ### 🎯 Conversões (Alta Prioridade)
 
@@ -238,7 +240,7 @@ O arquivo `analytics.js` já rastreia automaticamente:
 **Quando usar:** Se quiser adicionar muitos scripts sem editar código
 
 1. Criar conta: https://tagmanager.google.com
-2. Criar container: annacosta.com
+2. Criar container: www.studioannacosta.com.br
 3. Instalar código no site
 4. Gerenciar todos os scripts (GA4, Clarity, etc) pelo painel
 
@@ -394,7 +396,7 @@ Google My Business:
 - [ ] Criar conta Google Analytics 4
 - [ ] Obter Measurement ID
 - [ ] Adicionar código GA4 em todas as 5 páginas
-- [ ] Adicionar analytics.js em todas as páginas
+- [ ] Adicionar `js/analytics.js` em todas as páginas
 - [ ] Testar eventos (clicar WhatsApp e verificar no GA4)
 
 ### Semana 2: Search Console

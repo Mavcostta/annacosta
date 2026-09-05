@@ -1,4 +1,4 @@
-// Google Analytics 4 + Event Tracking
+// Google Analytics 4 + Event Tracking (opcional)
 // Anna Costa Studio - Monitoramento de Conversões
 
 // Rastreamento de Cliques no WhatsApp
