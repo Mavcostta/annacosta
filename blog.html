@@ -81,13 +81,13 @@
       }
     </script>
   </head>
-  <body class="sidebar-layout">
+  <body class="sidebar-layout" data-page="blog" data-service="general">
     <a
       href="https://wa.me/5511987382366"
       class="whatsapp-fixo"
       target="_blank"
       aria-label="WhatsApp"
-    >
+     rel="noopener noreferrer" data-track="whatsapp" data-location="floating_button" data-service="general">
       <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -325,7 +325,7 @@
         <a
           href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20blog%20e%20gostaria%20de%20agendar!"
           class="cta-button"
-        >
+         data-track="whatsapp" data-location="blog_cta" data-service="general">
           <i class="fab fa-whatsapp"></i>
           Agendar Agora
         </a>
@@ -408,7 +408,7 @@
             <a
               href="https://wa.me/5511987382366?text=Olá!%20Quero%20agendar%20minha%20extensão%20de%20cílios!"
               class="btn-agendar-post"
-              >Agendar Agora</a
+               data-track="whatsapp" data-location="post_1" data-service="general">Agendar Agora</a
             >
           </div>
         </article>
@@ -503,7 +503,7 @@
             <a
               href="https://wa.me/5511987382366?text=Olá!%20Quero%20agendar%20um%20design%20de%20sobrancelha!"
               class="btn-agendar-post"
-              >Agendar Consulta</a
+               data-track="whatsapp" data-location="post_2" data-service="general">Agendar Consulta</a
             >
           </div>
         </article>
@@ -660,7 +660,7 @@
             <a
               href="https://wa.me/5511987382366?text=Olá!%20Gostaria%20de%20conhecer%20as%20opções%20de%20tratamento!"
               class="btn-agendar-post"
-              >Consulta Gratuita</a
+               data-track="whatsapp" data-location="post_3" data-service="general">Consulta Gratuita</a
             >
           </div>
         </article>
@@ -783,7 +783,7 @@
             <a
               href="https://wa.me/5511987382366?text=Olá!%20Quero%20agendar%20henna%20para%20sobrancelhas!"
               class="btn-agendar-post"
-              >Agendar Agora</a
+               data-track="whatsapp" data-location="post_4" data-service="general">Agendar Agora</a
             >
           </div>
         </article>
@@ -939,7 +939,7 @@
             <a
               href="https://wa.me/5511987382366?text=Olá!%20Qual%20volume%20você%20recomenda%20para%20mim?"
               class="btn-agendar-post"
-              >Consulta Gratuita</a
+               data-track="whatsapp" data-location="post_5" data-service="general">Consulta Gratuita</a
             >
           </div>
         </article>
@@ -1053,7 +1053,7 @@
             <a
               href="https://wa.me/5511987382366?text=Olá!%20Gostaria%20de%20agendar%20uma%20manutenção%20de%20cílios!"
               class="btn-agendar-post"
-              >Agendar Manutenção Agora</a
+               data-track="whatsapp" data-location="post_6" data-service="general">Agendar Manutenção Agora</a
             >
           </div>
         </article>
@@ -1318,14 +1318,14 @@
           <strong>Anna Costa</strong>
           <span>Cílios e sobrancelhas desenhados para o seu olhar.</span>
         </div>
-        <a class="footer-simples-cta" href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener noreferrer">Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+        <a class="footer-simples-cta" href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener noreferrer" data-track="whatsapp" data-location="footer_cta" data-service="general">Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i></a>
       </div>
       <div class="footer-simples-base">
         <small>© 2026 Studio Anna Costa · Guarulhos — SP</small>
         <nav class="footer-simples-sociais" aria-label="Redes sociais">
-          <a href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/5511987382366" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://www.tiktok.com/@annacdesigner" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-track="social" data-location="footer" data-platform="instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5511987382366" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-track="whatsapp" data-location="footer_social" data-service="general"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.tiktok.com/@annacdesigner" target="_blank" rel="noopener noreferrer" aria-label="TikTok" data-track="social" data-location="footer" data-platform="tiktok"><i class="fab fa-tiktok"></i></a>
           <a href="https://www.google.com/maps/place/Studio+Anna+Costa/" target="_blank" rel="noopener noreferrer" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
         </nav>
       </div>
@@ -1340,6 +1340,7 @@
     <!-- Otimização de Performance -->
     <script src="js/optimize-images.js" defer></script>
     <script src="js/optimize-dimensions.js" defer></script>
+    <script src="js/analytics.js"></script>
     <script src="js/script.js?v=3" defer></script>
     <script>
       // Funcionalidade de Busca de Posts

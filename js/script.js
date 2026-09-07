@@ -127,6 +127,9 @@ if (portfolioDialog) {
       dialogImage.alt = button.dataset.title;
       dialogCaption.textContent = button.dataset.title;
       portfolioDialog.showModal();
+      window.pushAnalyticsEvent?.("portfolio_view", {
+        item_id: button.dataset.itemId,
+      });
     });
   });
 

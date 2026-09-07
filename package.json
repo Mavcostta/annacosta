@@ -5,7 +5,7 @@
   "description": "Site institucional do Studio Anna Costa",
   "scripts": {
     "build": "node scripts/minify-css.js",
-    "check": "node scripts/check-site.js && node --check js/script.js && node --check js/optimize-images.js && node --check js/optimize-dimensions.js && node --check sw.js"
+    "check": "node scripts/check-site.js && node --check js/script.js && node --check js/optimize-images.js && node --check js/optimize-dimensions.js && node --check sw.js && node --check js/analytics.js && node scripts/check-analytics.js"
   },
   "repository": {
     "type": "git",

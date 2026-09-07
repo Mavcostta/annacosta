@@ -165,14 +165,13 @@
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#d26ca4" />
   </head>
-  <body class="sidebar-layout">
+  <body class="sidebar-layout" data-page="home" data-service="general">
     <a
       href="https://wa.me/5511987382366?text=Ol%C3%A1!+Vi+o+site+do+Studio+Anna+Costa+e+gostaria+de+agendar+um+hor%C3%A1rio+para+sobrancelhas+ou+c%C3%ADlios.+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
       class="whatsapp-fixo"
       target="_blank"
       aria-label="Converse pelo WhatsApp"
-      onclick="trackEvent('CTA', 'click', 'WhatsApp Fixo')"
-    >
+     rel="noopener noreferrer" data-track="whatsapp" data-location="floating_button" data-service="general">
       <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -182,8 +181,7 @@
         href="https://www.google.com/maps/place/Studio+Anna+Costa/@-23.4009213,-46.4515011,15z/data=!4m8!3m7!1s0x94ce8bd863e8af37:0x891afd6c29a1a211!8m2!3d-23.4009216!4d-46.4412014!9m1!1b1!16s%2Fg%2F11mcfpf8_r?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D"
         target="_blank"
         aria-label="Deixar avaliação no Google"
-        onclick="trackEvent('CTA', 'click', 'Google Reviews')"
-      >
+       rel="noopener noreferrer" data-track="google_reviews" data-location="floating_reviews_button">
         <i class="fab fa-google"></i>
         <div class="google-reviews-tooltip">⭐ Avalie-nos!</div>
       </a>
@@ -193,8 +191,7 @@
     <div class="sticky-cta-mobile">
       <a
         href="https://wa.me/5511987382366?text=Oi%20Anna,%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!"
-        onclick="trackEvent('CTA', 'click', 'Sticky Mobile CTA')"
-      >
+       data-track="whatsapp" data-location="sticky_mobile" data-service="general">
         <i class="fas fa-calendar-check"></i>
         <span>Agendar pelo WhatsApp</span>
       </a>
@@ -235,7 +232,7 @@
           href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio."
           target="_blank"
           rel="noopener noreferrer"
-        >
+         data-track="whatsapp" data-location="hero" data-service="general">
           Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
       </div>
@@ -553,8 +550,7 @@
         <a
           href="https://wa.me/5511987382366?text=Oi%20Anna!%20Gostaria%20de%20agendar%20meu%20hor%C3%A1rio."
           class="btn-agendar-principal"
-          onclick="trackEvent('CTA', 'click', 'Como Funciona CTA')"
-        >
+         data-track="whatsapp" data-location="how_it_works" data-service="general">
           <i class="fab fa-whatsapp"></i>
           <span>Quero agendar meu horário</span>
           <i class="fas fa-arrow-right"></i>
@@ -571,37 +567,37 @@
         </p>
 
         <div class="servicos-grid">
-          <div class="servico-card">
+          <a class="servico-card" href="extensao-cilios-guarulhos.html" data-track="service" data-location="services" data-service="extensao_cilios">
             <div class="servico-icon">
               <i class="fas fa-eye"></i>
             </div>
             <h3>Extensão de Cílios</h3>
             <p>Brasileiro, Fox Eyes, Brasileiro Luxo, Volumes 4D e 6D, Volume Capping e Efeito Sirena</p>
-          </div>
+          </a>
 
-          <div class="servico-card">
+          <a class="servico-card" href="lash-lifting-guarulhos.html" data-track="service" data-location="services" data-service="lash_lifting">
             <div class="servico-icon">
               <i class="fas fa-magic"></i>
             </div>
             <h3>Lash Lifting</h3>
             <p>Alinha e curva os fios naturais, mantendo um efeito rímel por até 40 dias</p>
-          </div>
+          </a>
 
-          <div class="servico-card">
+          <a class="servico-card" href="design-sobrancelhas-guarulhos.html" data-track="service" data-location="services" data-service="design_sobrancelhas">
             <div class="servico-icon">
               <i class="fas fa-leaf"></i>
             </div>
             <h3>Design de Sobrancelhas</h3>
             <p>Design Personalizado, Design com Henna e técnicas exclusivas para valorizar seu olhar</p>
-          </div>
+          </a>
 
-          <div class="servico-card">
+          <a class="servico-card" href="brow-lamination-guarulhos.html" data-track="service" data-location="services" data-service="brow_lamination">
             <div class="servico-icon">
               <i class="fas fa-spa"></i>
             </div>
             <h3>Brow Lamination</h3>
             <p>Alinha e fixa os fios das sobrancelhas dando volume e definição natural por semanas</p>
-          </div>
+          </a>
         </div>
 
       </div>
@@ -617,7 +613,7 @@
 
         <div class="work-grid">
           <figure class="work-card">
-            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/Design personalizado + Volume Brasileiro.webp" data-title="Design personalizado + Volume Brasileiro" aria-label="Ampliar Design personalizado com Volume Brasileiro">
+            <button class="work-image-button" type="button" data-portfolio-image data-item-id="design-volume-brasileiro" data-full="imagens/Design personalizado + Volume Brasileiro.webp" data-title="Design personalizado + Volume Brasileiro" aria-label="Ampliar Design personalizado com Volume Brasileiro">
               <picture>
                 <source srcset="imagens/Design personalizado + Volume Brasileiro.webp" type="image/webp" />
                 <img src="imagens/Design personalizado + Volume Brasileiro.jpeg" width="1200" height="1600" loading="lazy" decoding="async" alt="Cliente com design personalizado de sobrancelhas e extensão Volume Brasileiro" />
@@ -627,7 +623,7 @@
           </figure>
 
           <figure class="work-card">
-            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/brasileirocapping.webp" data-title="Brasileiro Capping" aria-label="Ampliar resultado de Brasileiro Capping">
+            <button class="work-image-button" type="button" data-portfolio-image data-item-id="brasileiro-capping" data-full="imagens/brasileirocapping.webp" data-title="Brasileiro Capping" aria-label="Ampliar resultado de Brasileiro Capping">
               <picture>
                 <source srcset="imagens/brasileirocapping.webp" type="image/webp" />
                 <img src="imagens/brasileirocapping.jpeg" width="1200" height="1600" loading="lazy" decoding="async" alt="Resultado de extensão de cílios com técnica Brasileiro Capping" />
@@ -637,7 +633,7 @@
           </figure>
 
           <figure class="work-card">
-            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/Efeito Fox delineado.webp" data-title="Efeito Fox delineado" aria-label="Ampliar resultado de Efeito Fox delineado">
+            <button class="work-image-button" type="button" data-portfolio-image data-item-id="fox-delineado" data-full="imagens/Efeito Fox delineado.webp" data-title="Efeito Fox delineado" aria-label="Ampliar resultado de Efeito Fox delineado">
               <picture>
                 <source srcset="imagens/Efeito Fox delineado.webp" type="image/webp" />
                 <img src="imagens/Efeito Fox delineado.jpeg" width="1206" height="1600" loading="lazy" decoding="async" alt="Detalhe de extensão de cílios com Efeito Fox delineado" />
@@ -647,7 +643,7 @@
           </figure>
 
           <figure class="work-card">
-            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/efeitofoxmarrom.webp" data-title="Efeito Fox marrom" aria-label="Ampliar resultado de Efeito Fox marrom">
+            <button class="work-image-button" type="button" data-portfolio-image data-item-id="fox-marrom" data-full="imagens/efeitofoxmarrom.webp" data-title="Efeito Fox marrom" aria-label="Ampliar resultado de Efeito Fox marrom">
               <picture>
                 <source srcset="imagens/efeitofoxmarrom.webp" type="image/webp" />
                 <img src="imagens/efeitofoxmarrom.jpeg" width="1200" height="1600" loading="lazy" decoding="async" alt="Cliente com extensão de cílios Efeito Fox marrom" />
@@ -657,7 +653,7 @@
           </figure>
 
           <figure class="work-card">
-            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/Lash lifting e design com Henna.webp" data-title="Lash Lifting + Design com Henna" aria-label="Ampliar resultado de Lash Lifting com Design de Henna">
+            <button class="work-image-button" type="button" data-portfolio-image data-item-id="lash-lifting-henna" data-full="imagens/Lash lifting e design com Henna.webp" data-title="Lash Lifting + Design com Henna" aria-label="Ampliar resultado de Lash Lifting com Design de Henna">
               <picture>
                 <source srcset="imagens/Lash lifting e design com Henna.webp" type="image/webp" />
                 <img src="imagens/Lash lifting e design com Henna.jpeg" width="1200" height="1600" loading="lazy" decoding="async" alt="Resultado de Lash Lifting combinado com design de sobrancelhas com henna" />
@@ -667,7 +663,7 @@
           </figure>
 
           <figure class="work-card">
-            <button class="work-image-button" type="button" data-portfolio-image data-full="imagens/Volume 6D + Brow Lamination.webp" data-title="Volume 6D + Brow Lamination" aria-label="Ampliar resultado de Volume 6D com Brow Lamination">
+            <button class="work-image-button" type="button" data-portfolio-image data-item-id="volume-6d-brow-lamination" data-full="imagens/Volume 6D + Brow Lamination.webp" data-title="Volume 6D + Brow Lamination" aria-label="Ampliar resultado de Volume 6D com Brow Lamination">
               <picture>
                 <source srcset="imagens/Volume 6D + Brow Lamination.webp" type="image/webp" />
                 <img src="imagens/Volume 6D + Brow Lamination.jpeg" width="932" height="1060" loading="lazy" decoding="async" alt="Resultado combinado de extensão Volume 6D e Brow Lamination" />
@@ -677,7 +673,7 @@
           </figure>
         </div>
 
-        <a class="work-instagram-link" href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer">
+        <a class="work-instagram-link" href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer" data-track="social" data-location="portfolio" data-platform="instagram">
           Ver mais trabalhos no Instagram <span aria-hidden="true">→</span>
         </a>
       </div>
@@ -904,7 +900,7 @@
             href="https://www.google.com/maps/place/Studio+Anna+Costa/@-23.4009213,-46.4515011,15z/data=!4m8!3m7!1s0x94ce8bd863e8af37:0x891afd6c29a1a211!8m2!3d-23.4009216!4d-46.4412014!9m1!1b1!16s%2Fg%2F11mcfpf8_r?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             class="btn-google-reviews"
-          >
+           rel="noopener noreferrer" data-track="google_reviews" data-location="reviews_section">
             <i class="fab fa-google"></i>
             Ver Todas as Avaliações no Google
           </a>
@@ -934,7 +930,7 @@
               target="_blank"
               class="contato-action"
               aria-label="Agendar horário com Anna Costa pelo WhatsApp"
-            >
+             rel="noopener noreferrer" data-track="whatsapp" data-location="contact_card" data-service="general">
               <span>Quero agendar meu horário</span>
               <i class="fas fa-arrow-right"></i>
             </a>
@@ -953,7 +949,7 @@
               href="https://instagram.com/annamrdesigner"
               target="_blank"
               class="contato-action"
-            >
+             rel="noopener noreferrer" data-track="social" data-location="contact" data-platform="instagram">
               <span>Seguir</span>
               <i class="fas fa-arrow-right"></i>
             </a>
@@ -972,7 +968,7 @@
               href="https://www.tiktok.com/@annacdesigner"
               target="_blank"
               class="contato-action"
-            >
+             rel="noopener noreferrer" data-track="social" data-location="contact" data-platform="tiktok">
               <span>Ver</span>
               <i class="fas fa-arrow-right"></i>
             </a>
@@ -990,7 +986,7 @@
           <a
             href="https://wa.me/5511987382366?text=Oi%20Anna,%20vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio"
             class="btn-agendar-principal"
-          >
+           data-track="whatsapp" data-location="contact_cta" data-service="general">
             <i class="fas fa-calendar-check"></i>
             <span>Agendar Agora</span>
             <i class="fas fa-arrow-right"></i>
@@ -1058,20 +1054,21 @@
           <strong>Anna Costa</strong>
           <span>Cílios e sobrancelhas desenhados para o seu olhar.</span>
         </div>
-        <a class="footer-simples-cta" href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener noreferrer">Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+        <a class="footer-simples-cta" href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener noreferrer" data-track="whatsapp" data-location="footer_cta" data-service="general">Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i></a>
       </div>
       <div class="footer-simples-base">
         <small>© 2026 Studio Anna Costa · Guarulhos — SP</small>
         <nav class="footer-simples-sociais" aria-label="Redes sociais">
-          <a href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/5511987382366" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://www.tiktok.com/@annacdesigner" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-track="social" data-location="footer" data-platform="instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5511987382366" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-track="whatsapp" data-location="footer_social" data-service="general"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.tiktok.com/@annacdesigner" target="_blank" rel="noopener noreferrer" aria-label="TikTok" data-track="social" data-location="footer" data-platform="tiktok"><i class="fab fa-tiktok"></i></a>
           <a href="https://www.google.com/maps/place/Studio+Anna+Costa/" target="_blank" rel="noopener noreferrer" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
         </nav>
       </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="js/analytics.js"></script>
     <script src="js/script.js?v=3" defer></script>
 
     <!-- Google Reviews Integration Script -->

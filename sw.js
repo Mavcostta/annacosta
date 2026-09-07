@@ -1,10 +1,11 @@
-const CACHE_NAME = "anna-costa-v1.12.14";
+const CACHE_NAME = "anna-costa-v1.12.15";
 const urlsToCache = [
   "/",
   "/index.html",
   "/css/style.css",
   "/css/style.min.css",
   "/js/script.js",
+  "/js/analytics.js",
   "/js/optimize-images.js",
   "/js/optimize-dimensions.js",
   "/imagens/favicon.ico",

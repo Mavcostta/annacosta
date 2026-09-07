@@ -29,7 +29,7 @@
       rel="stylesheet"
     />
   </head>
-  <body class="sidebar-layout">
+  <body class="sidebar-layout" data-page="brow-lamination-guarulhos" data-service="brow_lamination">
     <nav class="site-nav site-sidebar" aria-label="Navegação principal">
       <a href="index.html" class="nav-brand sidebar-brand"><span class="sidebar-logo-frame"><img src="imagens/logo-anna-costa.png" width="1536" height="1024" alt="" decoding="async" /></span><span class="sidebar-brand-copy"><strong>Anna Costa</strong><small>Cílios e Sobrancelhas</small></span></a>
       <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-navigation" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -71,7 +71,7 @@
             href="https://wa.me/5511987382366?text=Olá! Gostaria de agendar Brow Lamination"
             class="btn-primary"
             target="_blank"
-          >
+           rel="noopener noreferrer" data-track="whatsapp" data-location="hero" data-service="brow_lamination">
             <i class="fab fa-whatsapp"></i>
             Agendar Agora
           </a>
@@ -212,7 +212,7 @@
                   href="https://wa.me/5511987382366?text=Quero agendar Brow Lamination"
                   class="btn-cta"
                   target="_blank"
-                >
+                 rel="noopener noreferrer" data-track="whatsapp" data-location="content_cta" data-service="brow_lamination">
                   <i class="fab fa-whatsapp"></i>
                   Agendar pelo WhatsApp
                 </a>
@@ -261,19 +261,20 @@
           <strong>Anna Costa</strong>
           <span>Cílios e sobrancelhas desenhados para o seu olhar.</span>
         </div>
-        <a class="footer-simples-cta" href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener noreferrer">Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+        <a class="footer-simples-cta" href="https://wa.me/5511987382366?text=Oi%20Anna!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener noreferrer" data-track="whatsapp" data-location="footer_cta" data-service="brow_lamination">Agendar horário <i class="fab fa-whatsapp" aria-hidden="true"></i></a>
       </div>
       <div class="footer-simples-base">
         <small>© 2026 Studio Anna Costa · Guarulhos — SP</small>
         <nav class="footer-simples-sociais" aria-label="Redes sociais">
-          <a href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/5511987382366" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://www.tiktok.com/@annacdesigner" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/annamrdesigner/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-track="social" data-location="footer" data-platform="instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5511987382366" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-track="whatsapp" data-location="footer_social" data-service="brow_lamination"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.tiktok.com/@annacdesigner" target="_blank" rel="noopener noreferrer" aria-label="TikTok" data-track="social" data-location="footer" data-platform="tiktok"><i class="fab fa-tiktok"></i></a>
           <a href="https://www.google.com/maps/place/Studio+Anna+Costa/" target="_blank" rel="noopener noreferrer" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
         </nav>
       </div>
     </footer>
 
+    <script src="js/analytics.js"></script>
     <script src="js/script.js?v=3"></script>
   </body>
 </html>

@@ -1,232 +1,160 @@
-// Google Analytics 4 + Event Tracking (opcional)
-// Anna Costa Studio - Monitoramento de Conversões
+// GA4 só carrega após consentimento explícito.
+(() => {
+  if (window.pushAnalyticsEvent) return;
+  const GA4_MEASUREMENT_ID = "G-EMDNPLS1H3";
+  const CONSENT_KEY = "studio_anna_analytics_consent";
+  const CONSENT_DURATION = 180 * 24 * 60 * 60 * 1000;
+  const page = document.body.dataset.page;
+  const service = document.body.dataset.service || "general";
+  let consent = false;
+  let ga4Loaded = false;
+  const thresholds = new Set();
+  const events = new Set([
+    "whatsapp_click", "select_service", "social_click",
+    "google_reviews_click", "portfolio_view", "scroll_depth",
+  ]);
 
-// Rastreamento de Cliques no WhatsApp
-document.addEventListener("DOMContentLoaded", function () {
-  const whatsappLinks = document.querySelectorAll(
-    'a[href*="wa.me"], a[href*="whatsapp"]'
-  );
-
-  whatsappLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      if (typeof gtag !== "undefined") {
-        gtag("event", "whatsapp_click", {
-          event_category: "Conversão",
-          event_label: "WhatsApp - " + (this.textContent || "Link"),
-          value: 1,
-        });
-      }
-
-      console.log("WhatsApp click tracked");
-    });
-  });
-
-  // Rastreamento de Cliques no Telefone
-  const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-
-  phoneLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      if (typeof gtag !== "undefined") {
-        gtag("event", "phone_call", {
-          event_category: "Conversão",
-          event_label: "Telefone - " + this.href.replace("tel:", ""),
-          value: 1,
-        });
-      }
-
-      console.log("Phone call tracked");
-    });
-  });
-
-  // Rastreamento de Links para Páginas de Serviços
-  const serviceLinks = document.querySelectorAll(
-    'a[href*="cilios-guarulhos"], a[href*="sobrancelhas-guarulhos"], a[href*="lifting"], a[href*="lamination"]'
-  );
-
-  serviceLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const serviceName = this.href.split("/").pop().replace(".html", "");
-
-      if (typeof gtag !== "undefined") {
-        gtag("event", "view_service", {
-          event_category: "Navegação",
-          event_label: serviceName,
-          value: 1,
-        });
-      }
-
-      console.log("Service page view tracked:", serviceName);
-    });
-  });
-
-  // Rastreamento de Scroll Profundidade
-  let scrolled25 = false,
-    scrolled50 = false,
-    scrolled75 = false,
-    scrolled100 = false;
-
-  window.addEventListener("scroll", function () {
-    const scrollPercentage =
-      ((window.scrollY + window.innerHeight) /
-        document.documentElement.scrollHeight) *
-      100;
-
-    if (scrollPercentage >= 25 && !scrolled25) {
-      scrolled25 = true;
-      if (typeof gtag !== "undefined") {
-        gtag("event", "scroll_depth", {
-          event_category: "Engajamento",
-          event_label: "25%",
-          value: 25,
-        });
-      }
+  function push(value) {
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(value);
+      return true;
+    } catch {
+      return false; // Analytics indisponível nunca interrompe o site.
     }
+  }
 
-    if (scrollPercentage >= 50 && !scrolled50) {
-      scrolled50 = true;
-      if (typeof gtag !== "undefined") {
-        gtag("event", "scroll_depth", {
-          event_category: "Engajamento",
-          event_label: "50%",
-          value: 50,
-        });
-      }
-    }
-
-    if (scrollPercentage >= 75 && !scrolled75) {
-      scrolled75 = true;
-      if (typeof gtag !== "undefined") {
-        gtag("event", "scroll_depth", {
-          event_category: "Engajamento",
-          event_label: "75%",
-          value: 75,
-        });
-      }
-    }
-
-    if (scrollPercentage >= 100 && !scrolled100) {
-      scrolled100 = true;
-      if (typeof gtag !== "undefined") {
-        gtag("event", "scroll_depth", {
-          event_category: "Engajamento",
-          event_label: "100%",
-          value: 100,
-        });
-      }
-    }
-  });
-
-  // Rastreamento de Tempo na Página
-  let timeOnPage = 0;
-  const timeInterval = setInterval(() => {
-    timeOnPage += 30;
-
-    // Track em marcos importantes
-    if (timeOnPage === 30 && typeof gtag !== "undefined") {
-      gtag("event", "time_on_page", {
-        event_category: "Engajamento",
-        event_label: "30 segundos",
-        value: 30,
-      });
-    }
-
-    if (timeOnPage === 60 && typeof gtag !== "undefined") {
-      gtag("event", "time_on_page", {
-        event_category: "Engajamento",
-        event_label: "1 minuto",
-        value: 60,
-      });
-    }
-
-    if (timeOnPage === 120 && typeof gtag !== "undefined") {
-      gtag("event", "time_on_page", {
-        event_category: "Engajamento",
-        event_label: "2 minutos",
-        value: 120,
-      });
-    }
-  }, 30000); // Check a cada 30 segundos
-
-  // Rastreamento de Cliques em Redes Sociais
-  const socialLinks = document.querySelectorAll(
-    'a[href*="instagram"], a[href*="tiktok"], a[href*="facebook"]'
-  );
-
-  socialLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      let platform = "Unknown";
-      if (this.href.includes("instagram")) platform = "Instagram";
-      if (this.href.includes("tiktok")) platform = "TikTok";
-      if (this.href.includes("facebook")) platform = "Facebook";
-
-      if (typeof gtag !== "undefined") {
-        gtag("event", "social_click", {
-          event_category: "Social Media",
-          event_label: platform,
-          value: 1,
-        });
-      }
-
-      console.log("Social media click tracked:", platform);
-    });
-  });
-
-  // Rastreamento de Visualizações de Galeria
-  const galleryImages = document.querySelectorAll(
-    ".gallery-item img, .service img"
-  );
-
-  if ("IntersectionObserver" in window) {
-    const imageObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const imgAlt = entry.target.alt || "Imagem sem descrição";
-
-            if (typeof gtag !== "undefined") {
-              gtag("event", "image_view", {
-                event_category: "Galeria",
-                event_label: imgAlt.substring(0, 50),
-                value: 1,
-              });
-            }
-
-            imageObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    galleryImages.forEach((img) => {
-      imageObserver.observe(img);
+  function consentCommand(action, state) {
+    function command() { return push(arguments); }
+    return command("consent", action, {
+      analytics_storage: state,
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
     });
   }
 
-  // Rastreamento de Saída da Página
-  window.addEventListener("beforeunload", function () {
-    if (typeof gtag !== "undefined") {
-      gtag("event", "page_exit", {
-        event_category: "Engajamento",
-        event_label: "Tempo total: " + Math.floor(timeOnPage / 60) + "min",
-        value: timeOnPage,
-      });
-    }
-  });
-});
+  consentCommand("default", "denied");
 
-// Função para rastreamento manual de conversões
-function trackConversion(conversionName, value = 1) {
-  if (typeof gtag !== "undefined") {
-    gtag("event", "conversion", {
-      event_category: "Conversão Manual",
-      event_label: conversionName,
-      value: value,
-    });
+  window.pushAnalyticsEvent = (eventName, params = {}) => {
+    if (!consent || !events.has(eventName)) return false;
+    function command() { return push(arguments); }
+    return command("event", eventName, { ...params, page });
+  };
+
+  // Ponto único usado pelo controle de consentimento.
+  window.setAnalyticsConsent = (granted) => {
+    consent = granted === true;
+    const updated = consentCommand("update", consent ? "granted" : "denied");
+    if (!updated) consent = false;
+    if (!consent || ga4Loaded) return;
+    try {
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`;
+      function command() { return push(arguments); }
+      if (!command("js", new Date()) ||
+          !command("config", GA4_MEASUREMENT_ID)) return;
+      document.head.appendChild(script);
+      ga4Loaded = true;
+    } catch {
+      // Bloqueadores ou falhas de rede não afetam navegação.
+    }
+  };
+
+  function savedConsent() {
+    try {
+      const choice = JSON.parse(localStorage.getItem(CONSENT_KEY));
+      if (choice?.expires > Date.now() && typeof choice.granted === "boolean")
+        return choice.granted;
+      localStorage.removeItem(CONSENT_KEY);
+    } catch {
+      // Armazenamento bloqueado mantém o consentimento negado por padrão.
+    }
+    return null;
   }
 
-  console.log("Manual conversion tracked:", conversionName);
-}
+  function saveConsent(granted) {
+    try {
+      localStorage.setItem(CONSENT_KEY, JSON.stringify({
+        granted,
+        expires: Date.now() + CONSENT_DURATION,
+      }));
+    } catch {
+      // A decisão ainda vale durante a página atual.
+    }
+  }
 
-// Expor função globalmente para uso no HTML
-window.trackConversion = trackConversion;
+  function setupConsentControl() {
+    if (!document.body.insertAdjacentHTML) return;
+    // Componente visual adaptado de Uiverse.io por 00Kubi.
+    document.body.insertAdjacentHTML("beforeend", `
+      <section class="cookie-consent-card" id="cookie-consent" role="dialog" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-description" hidden>
+        <span class="cookie-consent-icon" aria-hidden="true">🍪</span>
+        <h2 id="cookie-consent-title">Sua privacidade importa</h2>
+        <p id="cookie-consent-description">Usamos cookies de análise para entender como nosso site é utilizado e melhorar sua experiência. Você escolhe se deseja permitir.</p>
+        <button class="cookie-consent-more" id="cookie-consent-more" type="button" aria-expanded="false" aria-controls="cookie-consent-details">Saiba mais sobre privacidade</button>
+        <p class="cookie-consent-details" id="cookie-consent-details" hidden>O analytics é opcional. A recusa não afeta a navegação, e você pode mudar sua escolha a qualquer momento.</p>
+        <div class="cookie-consent-actions">
+          <button class="cookie-consent-accept" id="cookie-consent-accept" type="button">Permitir</button>
+          <button class="cookie-consent-decline" id="cookie-consent-decline" type="button">Recusar</button>
+        </div>
+      </section>
+    `);
+    const card = document.getElementById("cookie-consent");
+    const more = document.getElementById("cookie-consent-more");
+    const details = document.getElementById("cookie-consent-details");
+    const showCard = () => {
+      card.hidden = false;
+      document.getElementById("cookie-consent-accept").focus();
+    };
+    const choose = (granted) => {
+      saveConsent(granted);
+      window.setAnalyticsConsent(granted);
+      card.hidden = true;
+    };
+
+    document.getElementById("cookie-consent-accept")
+      .addEventListener("click", () => choose(true));
+    document.getElementById("cookie-consent-decline")
+      .addEventListener("click", () => choose(false));
+    more.addEventListener("click", () => {
+      details.hidden = !details.hidden;
+      more.setAttribute("aria-expanded", String(!details.hidden));
+    });
+
+    const choice = savedConsent();
+    if (choice === null) showCard();
+    else window.setAnalyticsConsent(choice);
+  }
+
+  setupConsentControl();
+
+  const clickEvents = {
+    whatsapp: "whatsapp_click",
+    service: "select_service",
+    social: "social_click",
+    google_reviews: "google_reviews_click",
+  };
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.("a[data-track]");
+    if (!link || event.defaultPrevented) return;
+    const action = link.dataset.track;
+    const params = { cta_location: link.dataset.location };
+    if (action === "whatsapp" || action === "service")
+      params.service = link.dataset.service || service;
+    if (action === "social") params.platform = link.dataset.platform;
+    window.pushAnalyticsEvent(clickEvents[action], params);
+  });
+
+  window.addEventListener("scroll", () => {
+    const height = document.documentElement.scrollHeight - window.innerHeight;
+    if (height <= 0) return;
+    const percent = window.scrollY / height * 100;
+    for (const threshold of [50, 90]) {
+      if (percent >= threshold && !thresholds.has(threshold) &&
+          window.pushAnalyticsEvent("scroll_depth", { percent: threshold }))
+        thresholds.add(threshold);
+    }
+  }, { passive: true });
+})();

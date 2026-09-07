@@ -1,5 +1,7 @@
 # Guia de Analytics e monitoramento
 
+> **Guia histórico:** as instruções e listas de eventos abaixo foram substituídas por [TRACKING-FASE-4A.md](TRACKING-FASE-4A.md). Não instalar os snippets antigos: o GA4 atual está centralizado e condicionado ao consentimento.
+
 ## Anna Costa Studio - Rastreamento de Conversões
 
 > Status atual: Google Analytics não está ativo. Configure um Measurement ID e carregue `js/analytics.js` somente após revisar o consentimento e a política de privacidade.
